@@ -35,5 +35,5 @@ This repository includes erd.pdf for reference when making the database.
 
 ## PowerShell
 
-`New-Item foo.php` make a new file
-`attrib +h/-h foo` hide/unhide directory or file
+- `New-Item foo.php` make a new file
+- `attrib +h/-h foo` hide/unhide directory or file
