@@ -1,16 +1,18 @@
 ## XAMPP Setup
 
-Go to https://www.apachefriends.org/download.html
-Download Windows installer 8.1.17 / PHP 8.1.17
-If you get a warning about UAC, be sure to install in a root directory e.g. `C:\xampp\`. The default option should look something like this.
-run xampp as administrator
-In the xampp control panel, start Apache and MySQL
-in your web browser, navigate to localhost aka `127.0.0.1`
-on the top tab bar of the site, click the phpMyAdmin button
-on the upper tab bar, click Databases
-locate the database named "foodies" with the default collation option
+1. Go to https://www.apachefriends.org/download.html
+2. Download Windows installer 8.1.17 / PHP 8.1.17.
+If you get a warning about UAC, be sure to install in a root directory e.g.
+`C:\xampp\`. The default option should look something like this.
+3. run xampp as administrator
+4. In the xampp control panel, start Apache and MySQL
+5. In your web browser, navigate to localhost aka `127.0.0.1`
+6. On the top tab bar of the site, click the phpMyAdmin button
+7. On the upper tab bar, click Databases
+8. Locate the database named "foodies" with the default collation option.
 You should now have this database in `C:\xampp\mysql\data\foodies`
-You can create tables with the GUI under the structure tab, or directly write SQL queries with the SQL tab.
+9. You can create tables with the GUI under the structure tab, or directly write
+ SQL queries with the SQL tab.
 
 ## git
 
