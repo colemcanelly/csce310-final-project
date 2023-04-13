@@ -33,3 +33,7 @@ If you get a warning about not having php support, add this to the end of VSCode
 
 This repository includes erd.pdf for reference when making the database.
 
+## PowerShell
+
+`New-Item foo.php` make a new file
+`attrib +h/-h foo` hide/unhide directory or file
