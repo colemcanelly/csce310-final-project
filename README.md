@@ -1,5 +1,5 @@
-README.md
-Project Setup
+# Project Setup
+
 Go to https://www.apachefriends.org/download.html
 Download Windows installer 8.1.17 / PHP 8.1.17
 If you get a warning about UAC, be sure to install in a root directory e.g. `C:\xampp\`. The default option should look something like this.
