@@ -16,7 +16,7 @@ You should now have this database in `C:\xampp\mysql\data\foodies`
 
 ## git
 
-1. navigate to `C:\xampp\htdocs`. This is the location of our frontend. You can make new webpages here e.g. `foo.php`, then navigate to them in the browser with `localhost/foo.php`.
+1. navigate to `C:\xampp\htdocs`. This is the location of our pages. You can make new webpages here e.g. `foo.php`, then navigate to them in the browser with `localhost/foo.php`.
 2. clone the repository here.
 
 when you `git add`, you might get this warning:
