@@ -1,11 +1,15 @@
+<!-- index.php will be the "main page" -->
 <?php
-	if (!empty($_SERVER['HTTPS']) && ('on' == $_SERVER['HTTPS'])) {
-		$uri = 'https://';
-	} else {
-		$uri = 'http://';
-	}
-	$uri .= $_SERVER['HTTP_HOST'];
-	header('Location: '.$uri.'/dashboard/');
-	exit;
+    include_once 'header.php';
 ?>
-Something is wrong with the XAMPP installation :-(
+
+<head>
+        <title>main page</title>
+</head>
+<body>
+
+</body>
+
+<?php
+    include_once 'footer.php';
+?>
