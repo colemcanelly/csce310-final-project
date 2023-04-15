@@ -1,6 +1,3 @@
-<?php
-    include_once 'header.php';
-?>
 
 <head>
         <title>log in</title>
@@ -14,9 +11,7 @@
                 <label for="password">password</label>
                 <input type="password" id="password">
             </div>
+            <input type="submit" value="log in"></input>
+            <input type="submit" value ="sign up"></input>
     </form>
 </body>
-
-<?php
-    include_once 'footer.php';
-?>
