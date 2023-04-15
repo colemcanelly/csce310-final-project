@@ -12,7 +12,7 @@ If you get a warning about UAC, be sure to install in a root directory e.g.
 8. Locate the database named "foodies" with the default collation option.
 You should now have this database in `C:\xampp\mysql\data\foodies`
 9. You can create tables with the GUI under the structure tab, or directly write
- SQL queries with the SQL tab.
+ SQL queries with the SQL tab. If you run XAMPP as administrator, you can also open a terminal from the XAMPP menu to make the database using `mysql`.
 
 ## git
 
@@ -37,3 +37,16 @@ This repository includes erd.pdf for reference when making the database.
 
 - `New-Item foo.php` make a new file
 - `attrib +h/-h foo` hide/unhide directory or file
+
+## Mysql Command Line Client
+
+1. In the XAMPP menu, click "shell". If the terminal crashes, make sure you run XAMPP as administrator.
+2. In the terminal, start the client with `mysql -u root -p`
+3. when prompted for a password, you should be able to just press enter to gain access.
+
+SQL Intro video: https://www.youtube.com/watch?v=Cz3WcZLRaWc
+
+SQL syntax reference: https://www.w3schools.com/sql/sql_drop_db.asp
+
+`mysql --i-am-a-dummy [database]` will add some safeguards to mysql to prevent
+things like `DELETE`ing without a `WHERE` clause and gigantic `JOIN`s and `SELECT`s.
