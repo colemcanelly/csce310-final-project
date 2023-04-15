@@ -9,7 +9,7 @@ If you get a warning about UAC, be sure to install in a root directory e.g.
 5. In your web browser, navigate to localhost aka `127.0.0.1`
 6. On the top tab bar of the site, click the phpMyAdmin button
 7. On the upper tab bar, click Databases
-8. Locate the database named "foodies" with the default collation option.
+8. Create the database named "foodies" with the default collation option.
 You should now have this database in `C:\xampp\mysql\data\foodies`
 9. You can create tables with the GUI under the structure tab, or directly write
  SQL queries with the SQL tab. If you run XAMPP as administrator, you can also open a terminal from the XAMPP menu to make the database using `mysql`.
