@@ -44,6 +44,11 @@ This repository includes erd.pdf for reference when making the database.
 2. In the terminal, start the client with `mysql -u root -p`
 3. when prompted for a password, you should be able to just press enter to gain access.
 
+useful commands:
+- `show databases`: list databases on server
+- `use foodies`: query/edit the foodies database
+- `show tables`: show tables of current DB
+
 SQL Intro video: https://youtu.be/Cz3WcZLRaWc?t=350
 
 SQL syntax reference: https://www.w3schools.com/sql/sql_drop_db.asp
