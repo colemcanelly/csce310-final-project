@@ -44,6 +44,18 @@ This repository includes erd.pdf for reference when making the database.
 2. In the terminal, start the client with `mysql -u root -p`
 3. when prompted for a password, you should be able to just press enter to gain access.
 
+It will be easier to check syntax and write queries using your text editor instead
+of typing them directly into the mysql prompt. Instructions:
+
+1. navigate to xampp/htdocs/queries
+2. make a new file with `touch <filename>.sql` (linux) or `New-Item <filename>.sql` (Powershell).
+3. write sql statements in the file
+4. launch and log in to the MySQL Command Line Client
+5. `USE foodies`
+6. `SOURCE C:\xampp\htdocs\queries\<>filename.sql`
+7. Check that everything worked properly with `show` or something.
+
+
 useful commands:
 - `show databases`: list databases on server
 - `use foodies`: query/edit the foodies database
