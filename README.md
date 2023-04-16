@@ -1,3 +1,8 @@
+## TODO
+- figure out MariaDB syntax for `foreign key`
+- add `auto_increment` constraints if possible
+- check that `unique` also turns attributes into primary keys
+
 ## XAMPP Setup
 
 1. Go to https://www.apachefriends.org/download.html
@@ -52,7 +57,7 @@ of typing them directly into the mysql prompt. Instructions:
 3. write sql statements in the file
 4. launch and log in to the MySQL Command Line Client
 5. `USE foodies`
-6. `SOURCE C:\xampp\htdocs\queries\<>filename.sql`
+6. `SOURCE htdocs\queries\<>filename.sql`
 7. Check that everything worked properly with `show` or something.
 
 
@@ -60,10 +65,11 @@ useful commands:
 - `show databases`: list databases on server
 - `use foodies`: query/edit the foodies database
 - `show tables`: show tables of current DB
+- `drop table <table>` removes table from database
 
 SQL Intro video: https://youtu.be/Cz3WcZLRaWc?t=350
 
-SQL syntax reference: https://www.w3schools.com/sql/sql_drop_db.asp
+SQL syntax reference: https://mariadb.com/kb/en/sql-statements-structure/
 
 `mysql --i-am-a-dummy [database]` will add some safeguards to mysql to prevent
 things like `DELETE`ing without a `WHERE` clause and gigantic `JOIN`s and `SELECT`s.
