@@ -1,7 +1,9 @@
 ## TODO
-- figure out MariaDB syntax for `foreign key`
+- find MariaDB syntax to show a table
+- figure out MariaDB syntax for `foreign key` and modify script as appropriate
 - add `auto_increment` constraints if possible
 - check that `unique` also turns attributes into primary keys
+- add support for emojis to comment table
 
 ## XAMPP Setup
 

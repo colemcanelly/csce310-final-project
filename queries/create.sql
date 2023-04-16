@@ -36,3 +36,12 @@ create table if not exists post
     post_desc       varchar(255),
     flag            int
 );
+
+create table if not exists comment
+(
+    comment_id      int             unique,
+    user_id         int,
+    post_id         int,
+    emoji           varchar(30),
+    comment_text    varchar(255)
+);
