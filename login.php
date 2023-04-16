@@ -1,10 +1,13 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>login</title>
+        <!-- <link rel="stylesheet" href="css/style.css" /> -->
+    </head>
 <?php
     include_once 'header.php';
 ?>
-
-<head>
-        <title>log in</title>
-</head>
 <body>
     <h2>log in</h2>
     <div class="login">
@@ -19,3 +22,4 @@
             <input type="submit" value ="sign up"></input>
     </form>
 </body>
+</html>
