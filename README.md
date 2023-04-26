@@ -5,6 +5,9 @@
 - check that `unique` also turns attributes into primary keys
 - add support for emojis to comment table
 
+## Page Layout / Design
+Checkout [this](https://stackoverflow.com/questions/6483234/php-file-layout-design) stackoverflow page for info how to create modular layouts.
+
 ## XAMPP Setup
 
 1. Go to https://www.apachefriends.org/download.html
