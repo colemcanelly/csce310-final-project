@@ -14,7 +14,7 @@
     <!-- Pills content -->
     <div class="tab-content">
       <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
-        <form>
+        <form action="/_login.php" autocomplete="on" method="post">
           <!-- Email input -->
           <div class="form-outline mb-4">
             <input type="email" id="loginName" class="form-control" />
@@ -34,7 +34,7 @@
         </form>
       </div>
       <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
-        <form>
+      <form action="/_login.php" autocomplete="on" method="post">
           <!-- Name input -->
           <div class="form-outline mb-4">
             <input type="text" id="registerName" class="form-control" />
