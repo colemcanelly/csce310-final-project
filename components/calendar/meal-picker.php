@@ -8,3 +8,5 @@
   <option value="7">Cereal</option>
   <option value="8">Grilled Chicken</option>
 </select>
+
+<!-- TODO: Get meals from database -->

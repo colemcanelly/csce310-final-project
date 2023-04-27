@@ -96,3 +96,5 @@
     calendar.render();
   });
 </script>
+
+<!-- TODO: Get `events` from DB -->
