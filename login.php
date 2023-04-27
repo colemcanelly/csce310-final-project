@@ -4,15 +4,14 @@
     include('layouts/default.php');
     
     # send form data to server
-    if ($_SERVER[ 'REQUEST_METHOD'] == 'POST'){
+    if ($_SERVER[ 'REQUEST_METHOD'] == 'POST') {
         # use mysql connection script
         require('./connect_db.php');
-        if (mysqli_ping($dbc)) {
-            echo 'MariaDB Server ' . mysqli_get_server_info($dbc).
-            ' connected on ' . mysqli_get_host_info($dbc);
+        if (mysqli_ping($db)) {
+            echo 'MariaDB Server ' . mysqli_get_server_info($db).
+            ' connected on ' . mysqli_get_host_info($db);
         }
-        $errors = array();
-        if (empty($_POST[''])) {
-        }
+       /*  if (empty($_POST['loginName'])) { $errors[] = 'loginName'; }
+        else { $loginName = trim($_POST['loginName']); } */
     }
 ?>

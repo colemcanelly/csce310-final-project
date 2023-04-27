@@ -45,11 +45,6 @@
           <input type="text" id="registerLName" class="form-control" />
           <label class="form-label" for="registerLName">Last Name</label>
           </div>
-          <!-- Lastname input -->
-          <div class="form-outline mb-4">
-            <input type="text" id="registerName" class="form-control" />
-            <label class="form-label" for="registerName">Last Name</label>
-          </div>
           <!-- Email input -->
           <div class="form-outline mb-4">
             <input type="email" id="registerEmail" class="form-control" />
