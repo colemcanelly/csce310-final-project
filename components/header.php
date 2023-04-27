@@ -1,4 +1,4 @@
-<header>
+<header class="sticky-top bg-white">
   <nav class="navbar navbar-expand-lg py-3">
     <div id="navbar-container" class="container-fluid d-flex justify-content-end">
       <div id="navbar">
@@ -7,13 +7,13 @@
             <a href="./index.php" class="btn btn-secondary btn-lg" aria-current="page" role="button">Home</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="btn btn-secondary btn-lg" role="button">Profile</a>
+            <a href="./profile.php" class="btn btn-secondary btn-lg" role="button">Profile</a>
           </li>
           <li class="nav-item">
             <a href="./login.php" class="btn btn-secondary btn-lg" role="button">Login</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="btn btn-secondary btn-lg" role="button">Profile</a>
+            <a href="./schedule.php" class="btn btn-secondary btn-lg" role="button">Schedule</a>
           </li>
         </ul>
       </div>

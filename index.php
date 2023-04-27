@@ -1,5 +1,5 @@
 <?php
-    $title = 'Main Page';
+    $title = 'Home Page';
     $childView = 'views/_index.php';
-    include('layout.php');
+    include('layouts/default.php');
 ?>
