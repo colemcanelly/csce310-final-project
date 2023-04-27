@@ -1,6 +1,6 @@
 create table if not exists user
 (
-    user_id         int unique auto_increment,
+    PRIMARY KEY (user_id)         int unique auto_increment,
     first_name      varchar(255)    not null,
     last_name       varchar(255)    not null,
     dob             date            not null,
@@ -11,17 +11,17 @@ create table if not exists user
 
 create table if not exists meal_event
 (
-    event_id        int             unique auto_increment,
+    PRIMARY KEY (event_id)        int             unique auto_increment,
     meal_date       date,
     meal_time       time,
-    user_id         int,
-    food_id         int
+    FOREIGN KEY (user_id)         int,
+    FOREIGN LEY (food_id)         int
 );
 
 create table if not exists food
 (
-    food_id         int             unique auto_increment,
-    user_id         int,
+    PRIMARY KEY (food_id)         int             unique auto_increment,
+    FOREIGN KEY (user_id)         int,
     food_name       varchar(255),
     calories        int,
     protein         int,
@@ -30,18 +30,18 @@ create table if not exists food
 
 create table if not exists post
 (
-    post_id         int             unique auto_increment,
-    user_id         int,
-    meal_id         int,
+    PRIMARY KEY (post_id)         int             unique auto_increment,
+    FOREIGN KEY (user_id)         int,
+    FOREIGN KEY (meal_id)         int,
     post_desc       varchar(255),
     flag            int
 );
 
 create table if not exists comment
 (
-    comment_id      int             unique auto_increment,
-    user_id         int,
-    post_id         int,
+    PRIMARY KEY (comment_id)      int             unique auto_increment,
+    FOREIGN KEY (user_id)         int,
+    FOREIGN KEY (post_id)         int,
     emoji           varchar(30),
     comment_text    varchar(255)
 );

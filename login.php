@@ -8,8 +8,8 @@
         # use mysql connection script
         require('./connect_db.php');
         if (mysqli_ping($dbc)) {
-            echo 'MariaDB Server ' . msqli_get_server_info($dbc).
-            'connected on ' . mysqli_get_host_info($dbc);
+            echo 'MariaDB Server ' . mysqli_get_server_info($dbc).
+            ' connected on ' . mysqli_get_host_info($dbc);
         }
         $errors = array();
         if (empty($_POST[''])) {

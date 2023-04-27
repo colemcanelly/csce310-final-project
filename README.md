@@ -1,9 +1,3 @@
-## TODO
-- find MariaDB syntax to show a table
-- figure out MariaDB syntax for `foreign key` and modify script as appropriate
-- add `auto_increment` constraints if possible
-- check that `unique` also turns attributes into primary keys
-- add support for emojis to comment table
 
 ## Page Layout / Design
 Checkout [this](https://stackoverflow.com/questions/6483234/php-file-layout-design) stackoverflow page for info how to create modular layouts.
