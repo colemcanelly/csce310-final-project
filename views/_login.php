@@ -35,10 +35,15 @@
       </div>
       <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
       <form autocomplete="on" method="post">
-          <!-- Name input -->
+          <!-- First Name input -->
           <div class="form-outline mb-4">
-            <input type="text" id="registerName" class="form-control" />
-            <label class="form-label" for="registerName">Name</label>
+            <input type="text" id="registerFName" class="form-control" />
+            <label class="form-label" for="registerFName">First Name</label>
+          </div>
+          <!-- Last Name input -->
+          <div class="form-outline mb-4">
+          <input type="text" id="registerLName" class="form-control" />
+          <label class="form-label" for="registerLName">Last Name</label>
           </div>
           <!-- Username input -->
           <div class="form-outline mb-4">
