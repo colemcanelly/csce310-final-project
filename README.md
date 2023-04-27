@@ -8,6 +8,8 @@
 ## Page Layout / Design
 Checkout [this](https://stackoverflow.com/questions/6483234/php-file-layout-design) stackoverflow page for info how to create modular layouts.
 
+Checkout [this](https://getbootstrap.com/docs/4.6/getting-started/introduction/) for a bunch of free bootstrap template we can yoink and twist to fit our project.
+
 ## XAMPP Setup
 
 1. Go to https://www.apachefriends.org/download.html
