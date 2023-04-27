@@ -7,6 +7,8 @@
     if ($_SERVER[ 'REQUEST_METHOD'] == 'POST'){
         require('./connect_db.php');
         $errors = array();
-        if (empty($_POST['']))
+        if (empty($_POST[''])) {
+            ;
+        }
     }
 ?>
