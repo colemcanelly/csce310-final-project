@@ -37,27 +37,27 @@
       <form autocomplete="on" method="post">
           <!-- First Name input -->
           <div class="form-outline mb-4">
-            <input type="text" id="registerFName" class="form-control" />
+            <input type="text" id="registerFName" name="registerFName" class="form-control" />
             <label class="form-label" for="registerFName">First Name</label>
           </div>
           <!-- Last Name input -->
           <div class="form-outline mb-4">
-          <input type="text" id="registerLName" class="form-control" />
+          <input type="text" id="registerLName" name="registerLName" class="form-control" />
           <label class="form-label" for="registerLName">Last Name</label>
           </div>
           <!-- Email input -->
           <div class="form-outline mb-4">
-            <input type="email" id="registerEmail" class="form-control" />
+            <input type="email" id="registerEmail" name="registerEmail" class="form-control" />
             <label class="form-label" for="registerEmail">Email</label>
           </div>
           <!-- Password input -->
           <div class="form-outline mb-4">
-            <input type="password" id="registerPassword" class="form-control" />
+            <input type="password" id="registerPassword" name="registerPassword" class="form-control" />
             <label class="form-label" for="registerPassword">Password</label>
           </div>
           <!-- Repeat Password input -->
           <div class="form-outline mb-4">
-            <input type="password" id="registerRepeatPassword" class="form-control" />
+            <input type="password" id="registerRepeatPassword" name="registerRepeatPassword" class="form-control" />
             <label class="form-label" for="registerRepeatPassword">Repeat password</label>
           </div>
           <!-- Submit button -->
