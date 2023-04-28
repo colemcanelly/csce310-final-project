@@ -14,7 +14,7 @@
     <!-- Pills content -->
     <div class="tab-content">
       <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
-        <form autocomplete="on" method="post">
+        <form autocomplete="on" method="post" action="" name="login-form">
           <!-- Email input -->
           <div class="form-outline mb-4">
             <input type="email" id="loginName" name= "loginName" class="form-control" />
@@ -26,7 +26,7 @@
             <label class="form-label" for="loginPassword">Password</label>
           </div>
           <!-- sign in button -->
-          <button type="submit" class="btn btn-outline-primary btn-block mb-4">Sign in</button>
+          <button type="submit" class="btn btn-outline-primary btn-block mb-4" name="login" value="login">Sign in</button>
           <!-- Register button -->
           <div class="text-center">
             <p>Not a member? <a href="#!">Register</a></p>
@@ -34,7 +34,7 @@
         </form>
       </div>
       <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
-      <form autocomplete="on" method="post">
+        <form autocomplete="on" method="post" action="" name="register-form">
           <!-- First Name input -->
           <div class="form-outline mb-4">
             <input type="text" id="registerFName" name="registerFName" class="form-control" />
@@ -71,7 +71,7 @@
             <label class="form-label" for="registerAccountType">account type</label>
           </div>
           <!-- create account button -->
-          <button type="submit" class="btn btn-outline-primary btn-block mb-3">Create Account</button>
+          <button type="submit" class="btn btn-outline-primary btn-block mb-3" name="register" value="register">Create Account</button>
         </form>
       </div>
     </div>

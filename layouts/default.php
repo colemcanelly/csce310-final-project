@@ -20,6 +20,7 @@
 <body class="h-100 d-flex flex-column">
   <?php include_once("components/header.php"); ?>
   <?php include($childView); ?>
+  <?php include('config.php'); ?>
   
   <!-- BOOTSTRAP SCRIPTS -->
   <!-- MDB https://mdbootstrap.com/docs/ -->
