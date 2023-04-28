@@ -1,6 +1,6 @@
-/* needs to follow a certain order so that FK constraints dont prevent drop */
 -- written by Ian Beckett and Cole McAnelly
 -- DROP all tables to create new entries
+/* needs to follow a certain order so that FK constraints dont prevent drop */
 DROP TABLE
     comment,
     meal_event,
@@ -49,7 +49,6 @@ create table meal_event
         ON DELETE CASCADE
         ON UPDATE RESTRICT
 );
-
 
 create table post
 (
