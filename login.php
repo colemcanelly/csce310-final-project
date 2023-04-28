@@ -2,6 +2,7 @@
     $title = 'Login';
     $childView = 'views/_login.php';
     include('layouts/default.php');
+    include('index.php');
 
     # send form data to server
     # FIXME: detect if theyre trying to login or register to determins which
@@ -31,29 +32,31 @@
                 }
                 echo '<br>try again</p>';
                 mysqli_close($conn);
+            } else {  # log in
+
             }
         } else if ($_REQUEST['registerFName']) {  # register
-            #registration data
+            # registration data
             if (empty($_POST['registerFName'])) { $errors[] = 'registerFName'; }
             else { $registerFName = mysqli_real_escape_string($conn, trim($_POST['registerFName'])); }
 
             if (empty($_POST['registerLName'])) { $errors[] = 'registerLName'; }
             else { $registerLName = mysqli_real_escape_string($conn, trim($_POST['registerLName'])); }
             
-            if (empty($_POST['registerdob'])) { $errors[] = 'registerdob'; }
-            else { $registerdob = mysqli_real_escape_string($conn, trim($_POST['registerdob'])); }
+            if (empty($_POST['registerDOB'])) { $errors[] = 'registerDOB'; }
+            else { $registerDOB = mysqli_real_escape_string($conn, trim($_POST['registerDOB'])); }
 
             if (empty($_POST['registerEmail'])) { $errors[] = 'registerEmail'; }
             else { $registerEmail = mysqli_real_escape_string($conn, trim($_POST['registerEmail'])); }
 
             if (empty($_POST['registerPassword'])) { $errors[] = 'registerPassword'; }
             else { $registerPassword = mysqli_real_escape_string($conn, trim($_POST['registerPassword'])); }
-
+            
             if ($_POST['registerPassword'] != $_POST['registerRepeatPassword']) { $errors[] = 'non-matching passwords'; }
-
+            
             if (empty($_POST['registerAccountType'])) { $errors[] = 'registerAccountType'; }
             else { $registerAccountType = mysqli_real_escape_string($conn, trim($_POST['registerAccountType'])); }
-
+            
             if (!empty($errors)) {  # missing form data for expected request
                 echo '<h2>error: missing the following form data: </h2>
                 <p id = "error_msg">';
@@ -61,8 +64,14 @@
                     echo " $msg";
                 }
                 echo '<br>try again</p>';
-                mysqli_close($conn);
+            } else {  # send query to register new user
+                query(
+                    "INSERT INTO user ('registerFName', 'registerLName', 'registerDOB', 'registerEmail', 'registerPassword', 'registerAccountType')
+                    VALUES ('$registerFName','$registerLName','$registerDOB','$registerEmail','$registerPassword','$registerAccountType');"
+                );
             }
         } else { $errors[] = 'neither login nor signIn detected'; }  # something went wrong (this shouldn't happen if we do it right)
     }
+    mysqli_close($conn);
+    exit();
 ?>
