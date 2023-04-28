@@ -14,28 +14,29 @@
             ' connected on ' . mysqli_get_host_info($conn);
         }
 
-        if (empty($_POST['loginName'])) { $errors[] = 'loginName'; }
-        else { $loginName = mysqli_real_escape_string($conn, trim($_POST['loginName'])); }
-        
-        if (empty($_POST['registerFName'])) { $errors[] = 'registerFName'; }
-        else { $registerFName = mysqli_real_escape_string($conn, trim($_POST['registerFName'])); }
-        
-        # detect if user is doing login or registration
-        if (!empty($_POST['registerFName'])) {
-            $request = 0;
-        }
-
-        if (!empty($_POST['loginName'])) {
-            $request = 1;
-        }
-
-        if ($request == 0) { # register
+        # detect if user is doing login or registration      
+        if ($_REQUEST['loginName']) {  # log in
             # login data
+            if (empty($_POST['loginName'])) { $errors[] = 'loginName'; }
+            else { $loginName = mysqli_real_escape_string($conn, trim($_POST['loginName'])); }
+            
             if (empty($_POST['loginPassword'])) { $errors[] = 'loginPassword'; }
             else { $loginPassword = mysqli_real_escape_string($conn, trim($_POST['loginPassword'])); }
-
-        } else if ($request == 1) { # log in
+            
+            if (!empty($errors)) {  # missing form data for expected request
+                echo '<h2>error: missing the following form data: </h2>
+                <p id = "error_msg">';
+                foreach($errors as $msg) {
+                    echo " $msg";
+                }
+                echo '<br>try again</p>';
+                mysqli_close($conn);
+            }
+        } else if ($_REQUEST['registerFName']) {  # register
             #registration data
+            if (empty($_POST['registerFName'])) { $errors[] = 'registerFName'; }
+            else { $registerFName = mysqli_real_escape_string($conn, trim($_POST['registerFName'])); }
+
             if (empty($_POST['registerLName'])) { $errors[] = 'registerLName'; }
             else { $registerLName = mysqli_real_escape_string($conn, trim($_POST['registerLName'])); }
             
@@ -53,17 +54,7 @@
             if (empty($_POST['registerAccountType'])) { $errors[] = 'registerAccountType'; }
             else { $registerAccountType = mysqli_real_escape_string($conn, trim($_POST['registerAccountType'])); }
 
-            # insert the data into the DB for login or log the user in and navigate to their profile
-            if (empty($errors)) {
-                if ($request == 0) {
-                    $query = "INSERT INTO user (first_name, last_name, dob, email, passphrase, account_type)
-                        VALUES ($registerFName, $registerLName, $registerdob, $registerEmail, $registerPassword, $registerAccountType);";
-                    $result = mysqli_query($conn, $query);
-                }
-                if ($request == 1) {
-                    # log in and go to profile
-                }
-            } else { # missing form data for expected request
+            if (!empty($errors)) {  # missing form data for expected request
                 echo '<h2>error: missing the following form data: </h2>
                 <p id = "error_msg">';
                 foreach($errors as $msg) {
@@ -72,6 +63,6 @@
                 echo '<br>try again</p>';
                 mysqli_close($conn);
             }
-        }
+        } else { $errors[] = 'neither login nor signIn detected'; }  # something went wrong (this shouldn't happen if we do it right)
     }
 ?>

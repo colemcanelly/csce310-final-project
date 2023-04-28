@@ -25,9 +25,9 @@
             <input type="password" id="loginPassword" name= "loginPassword" class="form-control" />
             <label class="form-label" for="loginPassword">Password</label>
           </div>
-          <!-- Submit button -->
+          <!-- sign in button -->
           <button type="submit" class="btn btn-outline-primary btn-block mb-4">Sign in</button>
-          <!-- Register buttons -->
+          <!-- Register button -->
           <div class="text-center">
             <p>Not a member? <a href="#!">Register</a></p>
           </div>
@@ -48,7 +48,7 @@
           <!-- DOB input -->
           <div class="form-outline mb-4">
             <input type="text" id="registerDOB" name="registerDOB" class="form-control" />
-            <label class="form-label" for="registerDOB">date of birth</label>
+            <label class="form-label" for="registerDOB">DOB (MMDDYYYY)</label>
           </div>
           <!-- Email input -->
           <div class="form-outline mb-4">
@@ -70,7 +70,7 @@
             <input type="password" id="registerAccountType" name="registerAccountType" class="form-control" />
             <label class="form-label" for="registerAccountType">account type</label>
           </div>
-          <!-- Submit button -->
+          <!-- create account button -->
           <button type="submit" class="btn btn-outline-primary btn-block mb-3">Create Account</button>
         </form>
       </div>
