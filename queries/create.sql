@@ -1,4 +1,5 @@
 /* needs to follow a certain order so that FK constraints dont prevent drop */
+-- written by Ian Beckett and Cole McAnelly
 -- DROP all tables to create new entries
 DROP TABLE
     comment,

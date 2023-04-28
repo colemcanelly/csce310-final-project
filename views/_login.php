@@ -1,3 +1,4 @@
+<!-- written by Cole McAnelly and Ian Beckett -->
 <section class="h-100 d-flex justify-content-center ">
   <div id="login" class="">
     <!-- Pills navs -->
