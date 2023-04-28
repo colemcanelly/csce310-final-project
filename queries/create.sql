@@ -35,7 +35,7 @@ create table food
 
 create table meal_event
 (
-    event_id        int             PRIMARY KEY,
+    event_id        int             PRIMARY KEY         AUTO_INCREMENT,
     meal_date       date,
     meal_time       time,
     user_id         int,
