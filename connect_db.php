@@ -1,5 +1,5 @@
 <?php
-    $db = mysqli_connect('localhost', 'root', '', 'foodies') # edit to allow other user profiles?
+    $conn = mysqli_connect('localhost', 'root', '', 'foodies') # edit to allow other user profiles?
         OR die (mysqli_connect_error());
-    mysqli_set_charset($db, 'utf8');
+    mysqli_set_charset($conn, 'utf8');
 ?>
