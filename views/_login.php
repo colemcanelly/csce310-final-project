@@ -45,6 +45,11 @@
           <input type="text" id="registerLName" name="registerLName" class="form-control" />
           <label class="form-label" for="registerLName">Last Name</label>
           </div>
+          <!-- DOB input -->
+          <div class="form-outline mb-4">
+            <input type="text" id="registerDOB" name="registerDOB" class="form-control" />
+            <label class="form-label" for="registerDOB">date of birth</label>
+          </div>
           <!-- Email input -->
           <div class="form-outline mb-4">
             <input type="email" id="registerEmail" name="registerEmail" class="form-control" />
@@ -59,6 +64,11 @@
           <div class="form-outline mb-4">
             <input type="password" id="registerRepeatPassword" name="registerRepeatPassword" class="form-control" />
             <label class="form-label" for="registerRepeatPassword">Repeat password</label>
+          </div>
+            <!-- Account Type input (make this into a checkbox or something) -->
+            <div class="form-outline mb-4">
+            <input type="password" id="registerAccountType" name="registerAccountType" class="form-control" />
+            <label class="form-label" for="registerAccountType">account type</label>
           </div>
           <!-- Submit button -->
           <button type="submit" class="btn btn-outline-primary btn-block mb-3">Create Account</button>
