@@ -17,12 +17,12 @@
         <form autocomplete="on" method="post">
           <!-- Email input -->
           <div class="form-outline mb-4">
-            <input type="email" id="loginName" class="form-control" />
+            <input type="email" id="loginName" name= "loginName" class="form-control" />
             <label class="form-label" for="loginName">Email</label>
           </div>
           <!-- Password input -->
           <div class="form-outline mb-4">
-            <input type="password" id="loginPassword" class="form-control" />
+            <input type="password" id="loginPassword" name= "loginPassword" class="form-control" />
             <label class="form-label" for="loginPassword">Password</label>
           </div>
           <!-- Submit button -->
