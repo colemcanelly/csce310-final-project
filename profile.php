@@ -14,23 +14,6 @@
     $row = mysql_fetch_row($result);
     return $row[0];
     }
-      
-    # profile info (need to get user_id from somewhere for these queries to work)
-    # firstname
-    $fname = getSingle("select first_name from user where user_id = '".$id."'");
-    print($fname);
-    # lastname
-    $lname = getSingle("select first_name from user where user_id = '".$id."'");
-    print($lname);
-    # DOB
-    $dob = getSingle("select first_name from user where user_id = '".$id."'");
-    print($dob);
-    # email
-    $email = getSingle("select first_name from user where user_id = '".$id."'");
-    print($email);
-    # account type
-    $acctType = getSingle("select first_name from user where user_id = '".$id."'");
-    print($acctType);
     
     # publish new post
     if (isset($_POST['publishPost'])) {
@@ -43,5 +26,6 @@
     while ($row = mysqli_fetch_assoc($result)) {
         $fname = $row[''];
         $lname = $row[''];
+
     }
 ?>

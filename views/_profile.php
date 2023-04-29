@@ -1,6 +1,24 @@
 <!-- written by Ian Beckett -->
 <section>
-  <h1><?php echo $title; ?></h1>
+  <?php
+    echo $title;
+    # profile info (need to get user_id from somewhere for these queries to work)
+    # firstname
+    $fname = getSingle("select first_name from user where user_id = '".$id."'");
+    print($fname);
+    # lastname
+    $lname = getSingle("select first_name from user where user_id = '".$id."'");
+    print($lname);
+    # DOB
+    $dob = getSingle("select first_name from user where user_id = '".$id."'");
+    print($dob);
+    # email
+    $email = getSingle("select first_name from user where user_id = '".$id."'");
+    print($email);
+    # account type
+    $acctType = getSingle("select first_name from user where user_id = '".$id."'");
+    print($acctType);
+  ?>
 </section>
 
 <h2>New Food</h2>
