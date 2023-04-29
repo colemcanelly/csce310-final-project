@@ -3,6 +3,7 @@
 $title = 'Login';
     $childView = 'views/_login.php';
     include('layouts/default.php');
+    include('config.php');
 
     # send form data to server
     # FIXME: detect if theyre trying to login or register to determins which
@@ -30,9 +31,17 @@ $title = 'Login';
                 }
                 // echo '<br>try again</p>';
                 mysqli_close($conn);
-            } else {  # log in
-                $query = ";";
-                $result = mysqli_query($conn, $query);
+            } else {  # log in WIP
+                # check that the inputs given match a row in user table
+                $email_q = getAttr("select email from user where email = '".$loginName."'", 4); # idk
+                $pass_q = getAttr("select passphrase from user where email = '".$loginName."'", 5); # idk
+                $email = mysqli_query($conn, $email_q);
+                $pass = mysqli_query($conn, $pass_q);
+                if ($email == $_POST['loginEmail']) {
+                    # go to the user's profile
+                } else {
+                    echo "email and password not found";
+                }
             }
         } else if (isset($_POST['register'])) {  # register
             // echo "Registering";
