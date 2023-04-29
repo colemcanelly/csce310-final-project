@@ -66,7 +66,7 @@
             <input type="password" id="registerRepeatPassword" name="registerRepeatPassword" class="form-control" />
             <label class="form-label" for="registerRepeatPassword">Repeat password</label>
           </div>
-            <!-- Account Type input (make this into a checkbox or something) -->
+            <!-- Account Type input -->
           <div class="form-outline my-3">
             <select id="registerAccountType" name="registerAccountType" class="select form-control">
               <option value=""></option>
@@ -79,7 +79,6 @@
               <div class="form-notch-middle" style="width: 82.4px;"></div>
               <div class="form-notch-trailing"></div>
             </div>
-            <!-- <input type="password" id="registerAccountType" name="registerAccountType" class="form-control" /> -->
           </div>
           <!-- create account button -->
           <button type="submit" class="btn btn-outline-primary btn-block mb-3" name="register" value="register">Create Account</button>

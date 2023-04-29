@@ -1,6 +1,6 @@
 <!-- written by Ian Beckett and Cole McAnelly -->
 <?php
-$title = 'Login';
+    $title = 'Login';
     $childView = 'views/_login.php';
     include('layouts/default.php');
 

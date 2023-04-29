@@ -1,5 +1,9 @@
 <!-- written by Ian Beckett -->
 <section>
+  <h1>My Profile</h1>
+  <?php
+  include_once('profile.php');
+  ?>
 </section>
 
 <h2>New Food</h2>
