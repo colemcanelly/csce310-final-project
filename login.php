@@ -18,30 +18,23 @@ $title = 'Login';
         if (isset($_POST['login'])) {  # log in
             // echo "Logging in";
             # login data
-            if (empty($_POST['loginName'])) { $errors[] = 'loginName'; }
-            else { $loginName = mysqli_real_escape_string($conn, trim($_POST['loginName'])); }
-            
-            if (empty($_POST['loginPassword'])) { $errors[] = 'loginPassword'; }
-            else { $loginPassword = mysqli_real_escape_string($conn, trim($_POST['loginPassword'])); }
-            
-            if (!empty($errors)) {  # missing form data for expected request
-                // echo '<h2>error: missing the following form data: </h2><p id = "error_msg">';
-                foreach($errors as $msg) {
-                    echo " $msg";
-                }
-                // echo '<br>try again</p>';
-                mysqli_close($conn);
+
             } else {  # log in WIP
-                # check that the inputs given match a row in user table
+                
+                
+/*                 # check that the inputs given match a row in user table
                 $email_q = getAttr("select email from user where email = '".$loginName."'", 4); # idk
                 $pass_q = getAttr("select passphrase from user where email = '".$loginName."'", 5); # idk
                 $email = mysqli_query($conn, $email_q);
                 $pass = mysqli_query($conn, $pass_q);
                 if ($email == $_POST['loginEmail']) {
                     # go to the user's profile
+                    session_start();
+                    $_SESSION['user_id'] =
+                    load ('profile.php');
                 } else {
-                    echo "email and password not found";
-                }
+                    echo "email and password not found";                
+                } */
             }
         } else if (isset($_POST['register'])) {  # register
             // echo "Registering";
