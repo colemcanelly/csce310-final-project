@@ -3,13 +3,6 @@
   <h1><?php echo $title; ?></h1>
 </section>
 
-<!-- profile info -->
-<!-- firstname -->
-<!-- lastname -->
-<!-- DOB -->
-<!-- email -->
-<!-- account type -->
-
 <h2>New Food</h2>
 <form action="">
   <div class="form-outline mb-4">
@@ -39,3 +32,5 @@
   <textarea ></textarea>
   <button type="submit" name="publishPost" value="publishPost">post</button>
 </form>
+
+<h2>Post History</h2>
