@@ -4,6 +4,30 @@
     $childView = 'views/_profile.php';
     include('layouts/default.php');
     include('config.php');
+
+    echo $title;
+    # profile info (need to get user_id from somewhere for these queries to work)
+    # we could make this into a view
+    # firstname
+    $fname_q = "select first_name from user where user_id = '$id'";
+    $fname_r = mysqli_query($conn, $fname_q);
+    print($fname_r);
+    # lastname
+    $lname_q = "select first_name from user where user_id = '$id'";
+    $lname_r = mysqli_query($conn, $lname_q);
+    print($lname_r);
+    # DOB
+    $dob_q = "select first_name from user where user_id = '$id'";
+    $dob_r = mysqli_query($conn, $dob_q);
+    print($dob_r);
+    # email
+    $email_q = "select first_name from user where user_id = '$id'";
+    $_r = mysqli_query($conn, $_q);
+    print($email_r);
+    # account type
+    $acctType_q = "select first_name from user where user_id = '$id'";
+    $_r = mysqli_query($conn, $_q);
+    print($acctType_r); # print the name of the acct type
     
     # publish new post
     if (isset($_POST['publishPost'])) {

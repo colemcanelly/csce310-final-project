@@ -5,15 +5,10 @@ $title = 'Login';
     include('layouts/default.php');
 
     if ($_SERVER[ 'REQUEST_METHOD'] == 'POST') {
-        # use mysql connection script
-/*         if (mysqli_ping($conn)) {
-            echo 'MariaDB Server ' . mysqli_get_server_info($conn).' connected on ' . mysqli_get_host_info($conn);
-        } */
         # detect if user is doing login or registration      
         if (isset($_POST['login'])) {
             include('login_action.php');  # does this run the script?
         } else if (isset($_POST['register'])) {  # register
-            // echo "Registering";
             # registration data
             if (empty($_POST['registerFName'])) { $errors[] = 'registerFName'; }
             else { $registerFName = mysqli_real_escape_string($conn, trim($_POST['registerFName'])); }
@@ -36,17 +31,17 @@ $title = 'Login';
             else { $registerAccountType = mysqli_real_escape_string($conn, trim($_POST['registerAccountType'])); }
             
             if (!empty($errors)) {  # missing form data for expected request
-                // echo '<h2>error: missing the following form data: </h2><p id = "error_msg">';
+                echo '<h2>error: missing the following form data: </h2><p id = "error_msg">';
                 foreach($errors as $msg) {
                     echo " $msg";
                 }
-                // echo '<br>try again</p>';
+                echo '<br>try again</p>';
             } else {  # send query to register new user
                 $query = "INSERT INTO user
                 VALUES (NULL,'$registerFName','$registerLName','$registerDOB','$registerEmail','$registerPassword','$registerAccountType');";
                 $result = mysqli_query($conn, $query);
             }
-        } else { $errors[] = 'neither login nor signIn detected'; }  # something went wrong (this shouldn't happen if we do it right)
+        } else { $errors[] = 'neither login nor signIn detected'; }
     }
     mysqli_close($conn);
     exit();
