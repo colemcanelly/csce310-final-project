@@ -1,5 +1,6 @@
 <?php
-    $title = 'Login';
+# written by Ian Beckett and Cole McAnelly
+$title = 'Login';
     $childView = 'views/_login.php';
     include('layouts/default.php');
 
@@ -57,7 +58,12 @@
             else { $registerAccountType = mysqli_real_escape_string($conn, trim($_POST['registerAccountType'])); }
             
             if (!empty($errors)) {  # missing form data for expected request
+<<<<<<< HEAD
                 // echo '<h2>error: missing the following form data: </h2><p id = "error_msg">';
+=======
+                echo 'error: missing the following form data: 
+                <p id = "error_msg">';
+>>>>>>> b7dbd4f63fcac3c324549b9298eec52040c2e2f9
                 foreach($errors as $msg) {
                     echo " $msg";
                 }

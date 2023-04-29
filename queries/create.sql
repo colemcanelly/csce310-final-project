@@ -1,4 +1,5 @@
 /* needs to follow a certain order so that FK constraints dont prevent drop */
+-- written by Ian Beckett and Cole McAnelly
 -- DROP all tables to create new entries
 DROP TABLE
     comment,
@@ -34,7 +35,7 @@ create table food
 
 create table meal_event
 (
-    event_id        int             PRIMARY KEY,
+    event_id        int             PRIMARY KEY         AUTO_INCREMENT,
     meal_date       date,
     meal_time       time,
     user_id         int,
