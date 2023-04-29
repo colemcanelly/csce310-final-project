@@ -88,10 +88,10 @@ create table comment
  /* show user's profile data and foods they've added */
 create view user_profile as
     select
-        'user' . 'first_name',
-        'user' . 'last_name',
-        'user' . 'dob',
-        'user' . 'email',
-        'user' . 'account_type',
-        'food' . 'food_name'
-    from 'user' inner join 'food' using ('user_id');
+        `user`.`first_name`,
+        `user`.`last_name`,
+        `user`.`dob`,
+        `user`.`email`,
+        `user`.`account_type`,
+        `food`.`food_name`
+    from `user` inner join `food` using (`user_id`);
