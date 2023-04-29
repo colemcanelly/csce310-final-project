@@ -9,8 +9,8 @@
 
     mysqli_set_charset($conn, 'utf8');
 
-    function getAttr($query, $i) {
+/*     function getAttr($query, $i) {
         $row = mysql_fetch_row($query);
         return $row[$i];
-    }
+    } */
 ?>

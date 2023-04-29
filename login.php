@@ -11,7 +11,7 @@ $title = 'Login';
         } */
         # detect if user is doing login or registration      
         if (isset($_POST['login'])) {
-            # log in
+            include('login_action.php');  # does this run the script?
         } else if (isset($_POST['register'])) {  # register
             // echo "Registering";
             # registration data
