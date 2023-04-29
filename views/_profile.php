@@ -3,6 +3,7 @@
   <?php
     echo $title;
     # profile info (need to get user_id from somewhere for these queries to work)
+    # we could make this into a view
     # firstname
     $fname = getSingle("select first_name from user where user_id = '".$id."'");
     print($fname);

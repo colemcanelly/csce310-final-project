@@ -3,15 +3,9 @@
     $title = 'My Profile';
     $childView = 'views/_profile.php';
     include('layouts/default.php');
-
-    function query($query) {
-        $result = mysqli_query($conn, $query);
-        return $result;
-      }
       
     function getSingle($query) {
-    $result = query($query);
-    $row = mysql_fetch_row($result);
+    $row = mysql_fetch_row($query);
     return $row[0];
     }
     
