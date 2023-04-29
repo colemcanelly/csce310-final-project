@@ -1,41 +1,17 @@
+<!-- written by Ian Beckett and Cole McAnelly -->
 <?php
-# written by Ian Beckett and Cole McAnelly
 $title = 'Login';
     $childView = 'views/_login.php';
     include('layouts/default.php');
-    include('config.php');
 
-    # send form data to server
-    # FIXME: detect if theyre trying to login or register to determins which
-    # form data to check for
     if ($_SERVER[ 'REQUEST_METHOD'] == 'POST') {
         # use mysql connection script
-        if (mysqli_ping($conn)) {
-            // echo 'MariaDB Server ' . mysqli_get_server_info($conn).' connected on ' . mysqli_get_host_info($conn);
-        }
-
+/*         if (mysqli_ping($conn)) {
+            echo 'MariaDB Server ' . mysqli_get_server_info($conn).' connected on ' . mysqli_get_host_info($conn);
+        } */
         # detect if user is doing login or registration      
-        if (isset($_POST['login'])) {  # log in
-            // echo "Logging in";
-            # login data
-
-            } else {  # log in WIP
-                
-                
-/*                 # check that the inputs given match a row in user table
-                $email_q = getAttr("select email from user where email = '".$loginName."'", 4); # idk
-                $pass_q = getAttr("select passphrase from user where email = '".$loginName."'", 5); # idk
-                $email = mysqli_query($conn, $email_q);
-                $pass = mysqli_query($conn, $pass_q);
-                if ($email == $_POST['loginEmail']) {
-                    # go to the user's profile
-                    session_start();
-                    $_SESSION['user_id'] =
-                    load ('profile.php');
-                } else {
-                    echo "email and password not found";                
-                } */
-            }
+        if (isset($_POST['login'])) {
+            # log in
         } else if (isset($_POST['register'])) {  # register
             // echo "Registering";
             # registration data
