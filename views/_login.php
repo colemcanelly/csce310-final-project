@@ -47,8 +47,8 @@
           </div>
           <!-- DOB input -->
           <div class="form-outline mb-4">
-            <input type="text" id="registerDOB" name="registerDOB" class="form-control" />
-            <label class="form-label" for="registerDOB">DOB (MMDDYYYY)</label>
+            <input type="date" id="registerDOB" name="registerDOB" class="form-control" />
+            <label class="form-label" for="registerDOB">DOB</label>
           </div>
           <!-- Email input -->
           <div class="form-outline mb-4">
@@ -66,9 +66,19 @@
             <label class="form-label" for="registerRepeatPassword">Repeat password</label>
           </div>
             <!-- Account Type input (make this into a checkbox or something) -->
-            <div class="form-outline mb-4">
-            <input type="password" id="registerAccountType" name="registerAccountType" class="form-control" />
-            <label class="form-label" for="registerAccountType">account type</label>
+          <div class="form-outline my-3">
+            <select id="registerAccountType" name="registerAccountType" class="select form-control">
+              <option value=""></option>
+              <option value="0">Member</option>
+              <option value="1">Admin</option>
+            </select>
+            <label class="form-label" for="registerAccountType">Account type</label>
+            <div class="form-notch">
+              <div class="form-notch-leading" style="width: 9px;"></div>
+              <div class="form-notch-middle" style="width: 82.4px;"></div>
+              <div class="form-notch-trailing"></div>
+            </div>
+            <!-- <input type="password" id="registerAccountType" name="registerAccountType" class="form-control" /> -->
           </div>
           <!-- create account button -->
           <button type="submit" class="btn btn-outline-primary btn-block mb-3" name="register" value="register">Create Account</button>
