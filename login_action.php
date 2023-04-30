@@ -7,6 +7,7 @@ if ($_SERVER[ 'REQUEST_METHOD'] == 'POST') { # do we even need this if its alrea
     list($success, $data) = validate($conn, $_REQUEST['loginName'], $_REQUEST['loginPassword']);
     if ($success) {
         session_start(); # FIXME warning: Session cannot be started after headers have already been sent in
+        # using session data instead of cookies so user doesn't disable it
         $_SESSION['user_id'] = $data['user_id'];
         $_SESSION['first_name'] = $data['first_name'];
         $_SESSION['last_name'] = $data['last_name'];
@@ -14,4 +15,5 @@ if ($_SERVER[ 'REQUEST_METHOD'] == 'POST') { # do we even need this if its alrea
         mysqli_close($conn);
     } else { $errors[] = $data; }
 }
+#include('login/php');
 ?>

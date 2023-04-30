@@ -6,11 +6,12 @@
     include_once('config.php');
     include_once('login_action.php');
 
+    # FIXME $_SESSION variables not recognized/persistent <-- THIS BREAKS EVERYTHING
     # print user's profile info using the user_profile view 
-    $profile_q = "select "$_SESSION['user_id']" from user_profile";
+/*     $profile_q = "select "$_SESSION['user_id']" from user_profile";
     $result = mysqli_query($conn, $profile_q);
 
-/*     # publish new post # FIXME $_SESSION variables not recognized
+    # publish new post 
 
     if (isset($_POST['publishPost'])) {
         # validate post info: food, description
