@@ -15,6 +15,9 @@
           <li class="nav-item">
             <a href="./schedule.php" class="btn btn-secondary btn-lg" role="button">Schedule</a>
           </li>
+          <li class="nav-item">
+            <a href="./food.php" class="btn btn-secondary btn-lg" role="button">Food</a>
+          </li>
         </ul>
       </div>
     </div>
