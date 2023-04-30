@@ -1,8 +1,8 @@
 <!-- written by Ian Beckett -->
 <?php
 if ($_SERVER[ 'REQUEST_METHOD'] == 'POST') { # do we even need this if its already being checked in login.php?
-    require('config.php');
-    require('login_tools.php');
+   include_once('config.php');
+   include_once('login_tools.php');
 
     list($success, $data) = validate($conn, $_REQUEST['loginName'], $_REQUEST['loginPassword']);
     if ($success) {
