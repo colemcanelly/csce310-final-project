@@ -26,7 +26,6 @@
   <button type="submit" name="postFood" value="postFood">publish new food</button>
 </form>
 
-<h2>New Post</h2>
 <!-- food dropdown selects an option from food table -->
 <form action="add_post.php" method="post">
   <div class="form-outline mb-4">
@@ -42,6 +41,4 @@
       ?>
     </select>
   </div>
-  <textarea name="postContent"></textarea>
-  <button type="submit" name="publishPost" value="publishPost">post</button>
 </form>
