@@ -31,7 +31,7 @@
             else { $registerAccountType = mysqli_real_escape_string($conn, trim($_POST['registerAccountType'])); }
             
             if (!empty($errors)) {  # missing form data for expected request
-                echo '<h2>error: missing the following form data: </h2><p id = "error_msg">';
+                echo 'error: missing the following form data: <p id = "error_msg">';
                 foreach($errors as $msg) {
                     echo " $msg";
                 }

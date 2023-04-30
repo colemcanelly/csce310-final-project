@@ -6,8 +6,8 @@
   ?>
 </section>
 
-<h2>New Food</h2>
-<form action="">
+<!-- <h2>New Food</h2> --> <!-- keeping this in case we decide to put food back in profile instead of its own page -->
+ <!-- <form action="">
   <div class="form-outline mb-4">
     <input type="text" id="foodName" name= "foodName" class="form-control" />
     <label class="form-label" for="foodName">food name</label>
@@ -24,12 +24,11 @@
     <input type="text" id="carbs" name= "carbs" class="form-control" />
     <label class="form-label" for="carbs">carbs</label>
   </div>
-  <!-- publish food button -->
   <button type="submit" name="postFood" value="postFood">publish new food</button>
-</form>
+ </form> --> 
+
 
 <h2>New Post</h2>
-<!-- food dropdown selects an option from food table -->
 <!-- publish post button -->
 <form action="">
   <textarea ></textarea>

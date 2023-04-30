@@ -7,15 +7,16 @@
     include('login_action.php');
 
     # print user's profile info using the user_profile view 
-    # TODO
+    $query = "select '$uid' from user_profile";
 
 /*     # publish new post # FIXME $_SESSION variables not recognized
+
     if (isset($_POST['publishPost'])) {
         # validate post info: food, description
         $post = mysqli_real_escape_string($conn, $_REQUEST['publishPost']);
         $query = "insert into post
-        values (NULL, "$_SESSION['user_id']", ,,,,)";
-        $result = mysqli_query($conn, $query)
+        values (NULL, "$_SESSION['user_id']", $food_id,,,,)"; # FIXME: how do we get food_id?
+        $result = mysqli_query($conn, $query) 
     }
 
     # list my posts ordered by reverse id (recent) WIP
