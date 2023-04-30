@@ -84,9 +84,13 @@ create table comment
     comment_text    varchar(255)
 );
 
+/* index written by Ian Beckett */
+create index user_last_name_idx ON
+    user (last_name);
+
  /* view written by Ian Beckett */
  /* show user's profile data and foods they've added */
-create view user_profile as
+create view if not exists user_profile as
     select
         `user`.`first_name`,
         `user`.`last_name`,

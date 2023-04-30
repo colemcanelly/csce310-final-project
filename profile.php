@@ -35,11 +35,6 @@
     }
 
     # list my posts ordered by reverse id (recent) WIP
-    $query = "select * from post order by post_id desc";
+    $query = "select * from user_post where user_id = '$uid' order by post_id desc";
     $result = mysqli_query($conn, $query);
-    print "<table border=1>";
-    while ($row = mysqli_fetch_assoc($result)) {
-        $fname = $row[''];
-        $lname = $row[''];
-    }
 ?>
