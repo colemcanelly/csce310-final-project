@@ -12,7 +12,7 @@ if(isset($_POST['postFood'])){
   $carbs = mysqli_real_escape_string($conn, $_POST['carbs']);
 
   // error check: prompt user to not leave any field blank
-  if if (strlen(trim($foodName)) == 0 || strlen(trim($calories)) == 0 || strlen(trim($protein)) == 0 || strlen(trim($carbs)) == 0) {
+  if(strlen(trim($foodName)) == 0 || strlen(trim($calories)) == 0 || strlen(trim($protein)) == 0 || strlen(trim($carbs)) == 0) {
     $error = "All fields are required";
   } else {
     $query = "INSERT INTO food (food_name, calories, protein, carbs) VALUES ('$foodName', '$calories', '$protein', '$carbs')";
