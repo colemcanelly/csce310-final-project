@@ -4,37 +4,21 @@
     $childView = 'views/_profile.php';
     include('layouts/default.php');
     include('config.php');
+    include('login_action.php');
 
-/*     # profile info
-    # we could make this into a view
-    # firstname
-    $fname_q = "select first_name from user where user_id = '$SESSION["user_id"]'";
-    $fname_r = mysqli_query($conn, $fname_q);
-    print($fname_r);
-    # lastname
-    $lname_q = "select first_name from user where user_id = '$SESSION["user_id"]'";
-    $lname_r = mysqli_query($conn, $lname_q);
-    print($lname_r);
-    # DOB
-    $dob_q = "select first_name from user where user_id = '$SESSION["user_id"]'";
-    $dob_r = mysqli_query($conn, $dob_q);
-    print($dob_r);
-    # email
-    $email_q = "select first_name from user where user_id = '$SESSION["user_id"]'";
-    $_r = mysqli_query($conn, $_q);
-    print($email_r);
-    # account type
-    $acctType_q = "select first_name from user where user_id = '$id'";
-    $_r = mysqli_query($conn, $_q);
-    print($acctType_r); # print the name of the acct type
-*/
-    
-    # publish new post
+    # print user's profile info using the user_profile view 
+    # TODO
+
+/*     # publish new post # FIXME $_SESSION variables not recognized
     if (isset($_POST['publishPost'])) {
+        # validate post info: food, description
         $post = mysqli_real_escape_string($conn, $_REQUEST['publishPost']);
+        $query = "insert into post
+        values (NULL, "$_SESSION['user_id']", ,,,,)";
+        $result = mysqli_query($conn, $query)
     }
 
     # list my posts ordered by reverse id (recent) WIP
-    $query = "select * from user_post where user_id = '$uid' order by post_id desc";
-    $result = mysqli_query($conn, $query);
+    $query = "select * from post where user_id = "$_SESSION['user_id']" order by post_id desc";
+    $result = mysqli_query($conn, $query); */
 ?>
