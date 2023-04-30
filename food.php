@@ -2,8 +2,8 @@
 <?php
 $title = 'My Food';
 $childView = 'views/_food.php';
-include('layouts/default.php');
-include('config.php');
+include_once('layouts/default.php');
+include_once('config.php');
 
 if(isset($_POST['postFood'])){
   $foodName = mysqli_real_escape_string($conn, $_POST['foodName']);
