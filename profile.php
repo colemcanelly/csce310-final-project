@@ -1,5 +1,5 @@
-<!-- written by Ian Beckett -->
 <?php
+/* written by Ian Beckett */
     $title = 'My Profile';
     $childView = 'views/_profile.php';
     include_once('layouts/default.php');

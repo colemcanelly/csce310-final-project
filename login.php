@@ -1,5 +1,5 @@
-<!-- written by Ian Beckett and Cole McAnelly -->
 <?php
+/* written by Ian Beckett and Cole McAnelly */
     $title = 'Login';
     $childView = 'views/_login.php';
     include_once('layouts/default.php');
@@ -7,7 +7,7 @@
     if ($_SERVER[ 'REQUEST_METHOD'] == 'POST') {
         # detect if user is doing login or registration      
         if (isset($_POST['login'])) {
-            include_once('login_action.php');  # does this run the script?
+            include('login_action.php');  # does this run the script?
         } else if (isset($_POST['register'])) {  # register
             # registration data
             if (empty($_POST['registerFName'])) { $errors[] = 'registerFName'; }

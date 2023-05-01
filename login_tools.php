@@ -1,6 +1,5 @@
-<!-- written by Ian Beckett -->
 <?php
-
+/* written by Ian Beckett */
   # load a new page
 function load($page = 'login.php') {
     $url = 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']);

@@ -11,7 +11,6 @@
       </li>
     </ul>
     <!-- Pills navs -->
-
     <!-- Pills content -->
     <div class="tab-content">
       <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
@@ -88,7 +87,6 @@
     <!-- Pills content -->
 </div>
 </section>
-
 <style>
   #login {
     margin-top: 11%;

@@ -1,5 +1,5 @@
-<!-- Margaret Zhuang -->
 <?php
+/* Margaret Zhuang */
 $title = 'My Food';
 $childView = 'views/_food.php';
 include_once('layouts/default.php');
