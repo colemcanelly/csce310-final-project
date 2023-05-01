@@ -1,5 +1,5 @@
-<!-- written by Cole McAnelly and Ian Beckett -->
 <section class="h-100 d-flex justify-content-center ">
+<!-- written by Cole McAnelly and Ian Beckett -->
   <div id="login" class="">
     <!-- Pills navs -->
     <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">

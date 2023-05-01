@@ -18,10 +18,10 @@
 </head>
 
 <body class="h-100 d-flex flex-column">
-  <?php include_once("components/header.php"); ?>
-  <?php include($childView); ?>
-  <?php include('config.php'); ?>
-  
+<?php include("components/header.php"); ?>
+<?php include($childView); ?>
+<?php include('config.php'); ?>
+
   <!-- BOOTSTRAP SCRIPTS -->
   <!-- MDB https://mdbootstrap.com/docs/ -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.js"></script>
