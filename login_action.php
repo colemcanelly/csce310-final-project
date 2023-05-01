@@ -11,8 +11,8 @@ if ($_SERVER[ 'REQUEST_METHOD'] == 'POST') { # do we even need this if its alrea
         $_SESSION['user_id'] = $data['user_id'];
         $_SESSION['first_name'] = $data['first_name'];
         $_SESSION['last_name'] = $data['last_name'];
-        load('profile.php');  # home?
-        mysqli_close($conn);
+/*         load('profile.php');  # home?
+ */        mysqli_close($conn);
     } else { $errors[] = $data; }
 }
 ?>

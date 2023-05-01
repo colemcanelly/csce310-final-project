@@ -43,6 +43,5 @@
             }
         } else { $errors[] = 'neither login nor signIn detected'; }
     }
-    mysqli_close($conn);
     exit();
 ?>
