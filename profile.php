@@ -1,4 +1,5 @@
 <?php
+session_start();
 /* written by Ian Beckett */
     $title = 'My Profile';
     $childView = 'views/_profile.php';
@@ -6,13 +7,12 @@
     include_once('config.php');
     include('login_action.php');
 
-    # FIXME $_SESSION variables not recognized/persistent <-- THIS BREAKS EVERYTHING
+    # FIXME unexpected variable "$_SESSION" <-- THIS BREAKS EVERYTHING
     # print user's profile info using the user_profile view 
     $profile_q = "select "$_SESSION['user_id']" from user_profile";
     $result = mysqli_query($conn, $profile_q);
 
     # publish new post 
-
     if (isset($_POST['publishPost'])) {
         # validate post info: food, description
         $post = mysqli_real_escape_string($conn, $_REQUEST['publishPost']);
