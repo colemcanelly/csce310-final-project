@@ -11,20 +11,21 @@
 </section>
 <?php
     # print user's profile info
-    echo "Name: " . $_SESSION['first_name'] . " " . $_SESSION['last_name'] . "<br>";
-    $uid = $_SESSION['user_id']; # just put the session variable into the query?
-    $user_q = "select $uid from user";
+    $uid = $_SESSION["user_id"];
+    $user_q = "select * from user where user_id = " . $uid;
     $result = $conn->query($user_q);
     $row = $result->fetch_assoc();
-    echo "Email: " . $row['email'];
-    echo "Date of Birth: " . $row['dob'];
-    echo "Account: " . $row['account_type'];
+    echo "Name: " . $row["first_name"] . " " . $row["last_name"] . "<br>";
+    echo "Email: " . $row["email"] . "<br>";
+    echo "Date of Birth: " . $row["dob"] . "<br>";
+    echo "Account: ";
+    if ($row["account_type"] == 2) echo "admin <br>"; else echo "member <br>";
 
     # using a view, show info about foods this user has added
     $profile_q = "select $uid from user_profile"; # ???
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
-          echo "Name: " . $row['first_name'] . " " . $row['last_name'] . "<br>";
+          echo "Name: " . $row["first_name"] . " " . $row["last_name"] . "<br>";
         }
     } else {
         echo "0 results";
