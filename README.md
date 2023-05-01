@@ -37,13 +37,6 @@ I recommend the PHP Extension Pack from Xdebug for php development.
 If you get a warning about not having php support, add this to the end of VSCode's `settings.json`:
 `"php.validate.executablePath": "C:\\xampp\\php\\php.exe"`
 
-This repository includes erd.pdf for reference when making the database.
-
-## PowerShell
-
-- `New-Item foo.php` make a new file
-- `attrib +h/-h foo` hide/unhide directory or file
-
 ## Mysql Command Line Client
 
 1. In the XAMPP menu, click "shell". If the terminal crashes, make sure you run XAMPP as administrator.
@@ -71,6 +64,3 @@ useful commands:
 SQL Intro video: https://youtu.be/Cz3WcZLRaWc?t=350
 
 SQL syntax reference: https://mariadb.com/kb/en/sql-statements-structure/
-
-`mysql --i-am-a-dummy [database]` will add some safeguards to mysql to prevent
-things like `DELETE`ing without a `WHERE` clause and gigantic `JOIN`s and `SELECT`s.

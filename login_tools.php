@@ -1,6 +1,6 @@
 <?php
 /* written by Ian Beckett */
-  # load a new page
+# load a new page
 function load($page = 'login.php') {
     $url = 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']);
     $url = rtrim($url, '/\\');
@@ -9,7 +9,7 @@ function load($page = 'login.php') {
     exit();
 }
 
-  # check login credentials
+# check login credentials
 function validate($conn, $email='', $pwd='') {
     if (empty($email)) { $errors[] = 'enter email address'; }
     else { $e = mysqli_real_escape_string($conn, trim($email)); }
