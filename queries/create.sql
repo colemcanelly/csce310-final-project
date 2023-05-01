@@ -85,8 +85,7 @@ create table comment
 );
 
 /* index written by Ian Beckett */
-create index user_last_name_idx ON
-    user (last_name);
+create index user_food_idx ON food (user_id);
 
  /* view written by Ian Beckett */
  /* show user's profile data and foods they've added */
