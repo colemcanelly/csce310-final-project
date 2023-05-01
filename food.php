@@ -1,8 +1,8 @@
+<!-- Margaret Zhuang -->
 <?php
-/* Margaret Zhuang */
 $title = 'My Food';
 $childView = 'views/_food.php';
-include_once('layouts/default.php');
+include('layouts/default.php');
 include_once('config.php');
 
 if(isset($_POST['postFood'])){

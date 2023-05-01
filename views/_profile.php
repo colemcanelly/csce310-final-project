@@ -1,5 +1,4 @@
 <!-- written by Ian Beckett -->
-<?php session_start(); ?>
 <section>
   <h1>My Profile</h1>
 </section>

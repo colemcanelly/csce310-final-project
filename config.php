@@ -1,5 +1,5 @@
+<!-- written by Ian Beckett and Cole McAnelly -->
 <?php
-/* written by Ian Beckett and Cole McAnelly */
     $servername = 'localhost';
     $username = 'root';
     $password = '';

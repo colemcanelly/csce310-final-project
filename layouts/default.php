@@ -1,3 +1,4 @@
+<?php session_start() ?> <!-- retain session data across multiple pages -->
 <!DOCTYPE html>
 <html lang="en" class="h-100">
 

@@ -1,5 +1,4 @@
 <!--Margaret Zhuang-->
-
 <?php if(isset($success)): ?>
   <div class="alert alert-success"><?php echo $success; ?></div>
 <?php endif; ?>

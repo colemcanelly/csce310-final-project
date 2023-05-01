@@ -1,8 +1,8 @@
+<!-- written by Ian Beckett and Cole McAnelly -->
 <?php
-/* written by Ian Beckett and Cole McAnelly */
     $title = 'Login';
     $childView = 'views/_login.php';
-    include_once('layouts/default.php');
+    include('layouts/default.php');
 
     if ($_SERVER[ 'REQUEST_METHOD'] == 'POST') {
         # detect if user is doing login or registration      
