@@ -10,14 +10,18 @@
 <h1>My Profile</h1>
 </section>
 <?php
-    # print user's profile info using the user_profile view 
+    # print user's profile info
     echo "Name: " . $_SESSION['first_name'] . " " . $_SESSION['last_name'] . "<br>";
-    echo "Email: " . 
-    echo "Date of Birth: " . ;
-    echo "Account: " . ;
-    $uid = $_SESSION['user_id'];
-    $profile_q = "select $uid from user_profile";
-    $result = $conn->query($profile_q);
+    $uid = $_SESSION['user_id']; # just put the session variable into the query?
+    $user_q = "select $uid from user";
+    $result = $conn->query($user_q);
+    $row = $result->fetch_assoc();
+    echo "Email: " . $row['email'];
+    echo "Date of Birth: " . $row['dob'];
+    echo "Account: " . $row['account_type'];
+
+    # using a view, show info about foods this user has added
+    $profile_q = "select $uid from user_profile"; # ???
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
           echo "Name: " . $row['first_name'] . " " . $row['last_name'] . "<br>";
