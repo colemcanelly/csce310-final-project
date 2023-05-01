@@ -15,5 +15,4 @@ if ($_SERVER[ 'REQUEST_METHOD'] == 'POST') { # do we even need this if its alrea
         mysqli_close($conn);
     } else { $errors[] = $data; }
 }
-#include('login/php');
 ?>
