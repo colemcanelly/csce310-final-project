@@ -15,12 +15,20 @@ if(isset($_POST['postFood'])){
   if(strlen(trim($food_name)) == 0 || strlen(trim($calories)) == 0 || strlen(trim($protein)) == 0 || strlen(trim($carbs)) == 0) {
     $error = "All fields are required";
   } else {
-    $query = "INSERT INTO food (food_name, calories, protein, carbs) VALUES ('$food_name', '$calories', '$protein', '$carbs')";
-    if (mysqli_query($conn, $query)) {
-      $success = "Food added successfully";
-    } else {
-      $error = "Error adding food: " . mysqli_error($conn);
-    }
+    // check if food already exists in the database
+    $check_query = "SELECT * FROM food WHERE food_name = '$food_name'";
+    $result = mysqli_query($conn, $check_query);
+    if (mysqli_num_rows($result) > 0) {
+      $error = "Food already exists in the database";
+    } else{
+      //insert food
+      $query = "INSERT INTO food (food_name, calories, protein, carbs) VALUES ('$food_name', '$calories', '$protein', '$carbs')";
+      if (mysqli_query($conn, $query)) {
+        $success = "Food added successfully";
+      } else {
+        $error = "Error adding food: " . mysqli_error($conn);
+      }
+    }  
   }
 }
 mysqli_close($conn);
