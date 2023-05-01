@@ -1,4 +1,4 @@
-    <!-- written by Ian Beckett -->
+<!-- written by Ian Beckett -->
 <?php
     $title = 'My Profile';
     $childView = 'views/_profile.php';
@@ -13,12 +13,12 @@
     # print user's profile info
     if (!$_SESSION["user_id"]) echo "<h2>please log in to view your profile.</h2>";
     $uid = $_SESSION["user_id"];
-    $user_q = "select * from user where user_id = " . $uid;
+    $user_q = "select * from user where user_id = ".$uid;
     $result = $conn->query($user_q);
     $row = $result->fetch_assoc();
-    echo "Name: " . $row["first_name"] . " " . $row["last_name"] . "<br>";
-    echo "Email: " . $row["email"] . "<br>";
-    echo "Date of Birth: " . $row["dob"] . "<br>";
+    echo "Name: ".$row["first_name"]." ".$row["last_name"]."<br>";
+    echo "Email: ".$row["email"]."<br>";
+    echo "Date of Birth: ".$row["dob"]."<br>";
     echo "Account: ";
     if ($row["account_type"] == 2) echo "admin <br>"; else echo "member <br>";
 ?>
@@ -27,12 +27,12 @@
 </section>
 <?php
     # using a view, show foods this user has added
-    echo "Name\tCalories\tProtein\tCarbs<br>";
-    $profile_q = "select food_name, calories, protein, carbs from food where user_id = " . $uid;
+    echo "Name | Calories | Protein | Carbs<br>";
+    $profile_q = "select food_name, calories, protein, carbs from food where user_id = ".$uid;
     $result = $conn->query($profile_q);
-    if ($result->num_rows > 0) {
+    if ($result->num_rows > 0) { # apparently returns true even on empty set; find alternative
         while($row = $result->fetch_assoc()) {
-          echo $row["food_name"] . "\t" . $row["calories"] . "\t" . $row["protein"] . "\t" . $row["carbs"] . "<br>";
+          echo $row["food_name"]." ".$row["calories"]." ".$row["protein"]." ".$row["carbs"]."<br>";
         }
     } else {
         echo "0 results";
@@ -65,8 +65,25 @@ description
 ?>
 <h2>My Post History</h2>
 <?php
+    echo "post ID | Food | Description<br>";
     # list my posts ordered by reverse id (recent) WIP
-    /* maybe make a new view that combines food info and post info */
-    $query = "select * from post where user_id = $uid order by post_id desc";
-    $result = mysqli_query($conn, $query);
+    $post_q = "select * from post where user_id = $uid and flag = 0 order by post_id desc";
+    $post_r = mysqli_query($conn, $post_q);
+    if ($post_r->num_rows > 0) { # apparently returns true even on empty set; find alternative
+        while($post_row = $post_r->fetch_assoc()) {
+            $food_q = "select food_name from food where food_id = ".$post_row["food_id"];
+            $food_r = mysqli_query($conn, $food_q);
+            $food_row = $food_r->fetch_assoc();
+            echo $post_row["post_id"]." ".$food_row["food_name"]." ".$post_row["post_desc"]."<br>";
+            # show comments below the post
+            $comment_q = "select * from comment where post_id = ".$post_row["post_id"]." order by comment_id";
+            $comment_r = mysqli_query($conn, $comment_q);
+            if ($comment_r->num_rows > 0) { # apparently returns true even on empty set; find alternative
+                echo "comments:<br>";
+                while($comment_row = $comment_r->fetch_assoc()) {
+                    echo $comment_row["user_id"]." ".$comment_row["comment_text"]." ".$comment_row["emoji"]." "."<br>"; # replace user_id with name
+                }
+            }
+        } 
+    } else echo "you haven't posted anything yet";
 ?>
