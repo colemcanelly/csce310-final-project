@@ -11,14 +11,16 @@
 </section>
 <?php
     # print user's profile info using the user_profile view 
-    /*     $fname = $_SESSION['first_name'];
-    $lname = $_SESSION['last_name']; */
+    echo "Name: " . $_SESSION['first_name'] . " " . $_SESSION['last_name'] . "<br>";
+    echo "Email: " . 
+    echo "Date of Birth: " . ;
+    echo "Account: " . ;
     $uid = $_SESSION['user_id'];
     $profile_q = "select $uid from user_profile";
     $result = $conn->query($profile_q);
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
-          echo "Name: " . $row["first_name"]. " " . $row["last_name"]. "<br>";
+          echo "Name: " . $row['first_name'] . " " . $row['last_name'] . "<br>";
         }
     } else {
         echo "0 results";
