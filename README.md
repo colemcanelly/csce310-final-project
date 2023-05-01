@@ -1,3 +1,7 @@
+## TODO
+- a way to link an existing food to a new post
+- log out functionality
+- allow guests (not signed in) to see posts from home page
 
 ## Page Layout / Design
 Checkout [this](https://stackoverflow.com/questions/6483234/php-file-layout-design) stackoverflow page for info how to create modular layouts.
@@ -5,7 +9,6 @@ Checkout [this](https://stackoverflow.com/questions/6483234/php-file-layout-desi
 Checkout [this](https://mdbootstrap.com/docs/standard/getting-started/installation/) for a bunch of free bootstrap template we can yoink and twist to fit our project.
 
 ## XAMPP Setup
-
 1. Go to https://www.apachefriends.org/download.html
 2. Download Windows installer 8.1.17 / PHP 8.1.17.
 If you get a warning about UAC, be sure to install in a root directory e.g.
@@ -21,7 +24,6 @@ You should now have this database in `C:\xampp\mysql\data\foodies`
  SQL queries with the SQL tab. If you run XAMPP as administrator, you can also open a terminal from the XAMPP menu to make the database using `mysql`.
 
 ## git
-
 1. navigate to `C:\xampp\htdocs`. This is the location of our pages. You can make new webpages here e.g. `foo.php`, then navigate to them in the browser with `localhost/foo.php`.
 2. clone the repository here.
 
@@ -31,14 +33,12 @@ The file will have its original line endings in your working directory`
 This shouldn't be an issue. If we need to change it, we can do that on the bottom right of VSCode.
 
 ## Visual Studio Code
-
 You should be able to edit files with Visual Studio Code using `code .`.
 I recommend the PHP Extension Pack from Xdebug for php development.
 If you get a warning about not having php support, add this to the end of VSCode's `settings.json`:
 `"php.validate.executablePath": "C:\\xampp\\php\\php.exe"`
 
 ## Mysql Command Line Client
-
 1. In the XAMPP menu, click "shell". If the terminal crashes, make sure you run XAMPP as administrator.
 2. In the terminal, start the client with `mysql -u root -p`
 3. when prompted for a password, you should be able to just press enter to gain access.
@@ -53,7 +53,6 @@ of typing them directly into the mysql prompt. Instructions:
 5. `USE foodies`
 6. `SOURCE htdocs\queries\<>filename.sql`
 7. Check that everything worked properly with `show` or something.
-
 
 useful commands:
 - `show databases`: list databases on server
