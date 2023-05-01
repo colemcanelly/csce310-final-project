@@ -16,7 +16,7 @@
     $user_q = "select * from user where user_id = ".$uid;
     $result = $conn->query($user_q);
     $row = $result->fetch_assoc();
-    echo "Name: ".$row["first_name"]." ".$row["last_name"]."<br>";
+    echo "Name: ".$row["first_name"]." | ".$row["last_name"]."<br>";
     echo "Email: ".$row["email"]."<br>";
     echo "Date of Birth: ".$row["dob"]."<br>";
     echo "Account: ";
@@ -32,7 +32,7 @@
     $result = $conn->query($profile_q);
     if ($result->num_rows > 0) { # apparently returns true even on empty set; find alternative
         while($row = $result->fetch_assoc()) {
-          echo $row["food_name"]." ".$row["calories"]." ".$row["protein"]." ".$row["carbs"]."<br>";
+          echo $row["food_name"]." | ".$row["calories"]." | ".$row["protein"]." | ".$row["carbs"]."<br>";
         }
     } else {
         echo "0 results";
@@ -74,16 +74,21 @@ description
             $food_q = "select food_name from food where food_id = ".$post_row["food_id"];
             $food_r = mysqli_query($conn, $food_q);
             $food_row = $food_r->fetch_assoc();
-            echo $post_row["post_id"]." ".$food_row["food_name"]." ".$post_row["post_desc"]."<br>";
+            echo $post_row["post_id"]." | ".$food_row["food_name"]." | ".$post_row["post_desc"]."<br>";
             # show comments below the post
             $comment_q = "select * from comment where post_id = ".$post_row["post_id"]." order by comment_id";
             $comment_r = mysqli_query($conn, $comment_q);
             if ($comment_r->num_rows > 0) { # apparently returns true even on empty set; find alternative
                 echo "comments:<br>";
                 while($comment_row = $comment_r->fetch_assoc()) {
-                    echo $comment_row["user_id"]." ".$comment_row["comment_text"]." ".$comment_row["emoji"]." "."<br>"; # replace user_id with name
+                    # fetch commenter's name
+                    $name_q = "select first_name, last_name from user where user_id = ".$comment_row["user_id"];
+                    $name_r = mysqli_query($conn, $name_q);
+                    $name_row = $name_r->fetch_assoc();
+                    echo $name_row["first_name"]." ".$name_row["last_name"]." : ";
+                    echo $comment_row["comment_text"]." ".$comment_row["emoji"]."<br>";
                 }
             }
-        } 
+        }
     } else echo "you haven't posted anything yet";
 ?>
