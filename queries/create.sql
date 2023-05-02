@@ -84,6 +84,12 @@ create table comment
     comment_text    varchar(255)
 );
 
+/*Margaret Zhuang, shows food ids with the same name*/
+CREATE VIEW food_names AS
+SELECT food_name, GROUP_CONCAT(food_id ORDER BY food_id) AS food_ids
+FROM food
+GROUP BY food_name;
+
 /* index written by Ian Beckett */
 create index user_food_idx ON food (user_id);
 
@@ -107,3 +113,4 @@ from `user` inner join `food` using (`user_id`);
         `user`.`account_type`,
         `food`.`food_name`
     from `user` inner join `food` using (`user_id`); */
+  
