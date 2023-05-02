@@ -78,7 +78,7 @@
 <form autocomplete="on" method="post" action="" name="post-form">
     <div class="form-outline mb-4">
         <input type="text" id="new_post_food" name= "new_post_food" class="form-control"/>
-        <label class="form-label" for="new_post_food">food</label>
+        <label class="form-label" for="new_post_food">select your food</label>
     </div>
     <div>
         <input type="text" id="description" name="description" class="form-control"/>
@@ -99,6 +99,7 @@
         $food_id_q = mysqli_real_escape_string($conn, "select food_id from food");
         $food_id_r = mysqli_query($conn, $food_id_q);
         $food_id_row = $food_id_r->fetch_assoc();
+        $foodID = $food_id_row['food_id'];
         
         if (!empty($errors)) {  # missing form data for expected request
             echo 'error: missing the following form data: <p id = "error_msg">';
@@ -108,9 +109,8 @@
             echo '<br>try again</p>';
         } else {  # send query to register new user
             # publish new post
-            $publish_q = mysqli_real_escape_string($conn, "insert into post values (NULL, $uid, $food_id_row, $post_desc, NULL)");
+            $publish_q = "insert into post values (NULL, '$uid', '$foodID', '$post_desc', 0);";
             mysqli_query($conn, $publish_q);
         }
-
     }
 ?>
