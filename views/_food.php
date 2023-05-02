@@ -39,6 +39,32 @@
 
   <hr>
 
+  <h2>Get Food Info</h2>
+  <form action="food.php" method="post">
+    <div class="form-outline mb-4">
+      <label class="form-label" for="getFoods">Enter Existing Food Name</label>
+      <br>
+      <input type="text" id="getFoods" name="getFoods" class="form-control" />
+    </div>
+    <!-- publish food button -->
+    <button type="submit" name="searchFood" value="searchFood">Search Food</button>
+  </form>
+
+   <hr>
+
+  <h2>Get Foods By Calories</h2>
+  <form action="food.php" method="post">
+    <div class="form-outline mb-4">
+      <label class="form-label" for="calCount">Enter Desired Min Calories</label>
+      <br>
+      <input type="text" id="calCount" name="calCount" class="form-control" />
+    </div>
+    <!-- search cals button -->
+    <button type="submit" name="searchCals" value="searchCals">Search</button>
+  </form>
+
+  <hr>
+
   <h2>Delete Food</h2>
 <form action="food.php" method="post">
   <div class="form-outline mb-4">
