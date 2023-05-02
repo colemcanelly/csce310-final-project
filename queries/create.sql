@@ -90,6 +90,10 @@ SELECT food_name, GROUP_CONCAT(food_id ORDER BY food_id) AS food_ids
 FROM food
 GROUP BY food_name;
 
+/*Margaret Zhuang, index to food info above a certain calorie count*/
+CREATE INDEX idx_calories ON food (calories);
+
+
 /* index written by Ian Beckett */
 create index user_food_idx ON food (user_id);
 
