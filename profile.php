@@ -4,8 +4,8 @@
     $childView = 'views/_profile.php';
     include('layouts/default.php');
     include_once('config.php');
-    include('login_action.php');
 ?>
+
 <section>
 <h1>My Profile</h1>
 </section>
@@ -37,34 +37,11 @@
     } else {
         echo "0 results";
     }
-?>
-<h2>New Post</h2>
-<!-- food select -->
-<form autocomplete="on" method="post" action="" name="post-form">
-    <div class="form-outline mb-4">
-        <input type="text" id="new_post_food" name= "new_post_food" class="form-control"/>
-        <label class="form-label" for="new_post_food">food</label>
-    </div>
-    <div>
-        <textarea>description</textarea>
-        <button type="submit" name="publishPost" value="publishPost">post</button>
-    </div>
-</form>
-<!-- publish post button -->
-<?php
-    if (isset($_POST['publishPost'])) {
-        # lookup food_id by food_name
-        $new_food = $_POST['new_post_food'];
-        $food_id_q = mysqli_real_escape_string($conn, "select food_id from food where food_name = $new_food;");
-        $food_id_r = mysqli_query($conn, $food_id_q);
-        echo $food_id_r;
-        $food_id = $food_id_r;
-        # publish new post
-        $publish_q = mysqli_real_escape_string($conn, "insert into post values (NULL, ".$uid.", ".$food_id.", ".$post_desc.", 0);");
-        $publish_r = mysqli_query($conn, $publish_q);
-    }
-?>
+    ?>
+
+<section>
 <h2>My Post History</h2>
+</section>
 <?php
     echo "post ID | Food | Description<br>";
     # list my posts ordered by reverse id (recent) WIP
@@ -92,4 +69,48 @@
             }
         }
     } else echo "you haven't posted anything yet";
+?>
+
+<section>
+<h2>New Post</h2>
+</section>
+<!-- food select -->
+<form autocomplete="on" method="post" action="" name="post-form">
+    <div class="form-outline mb-4">
+        <input type="text" id="new_post_food" name= "new_post_food" class="form-control"/>
+        <label class="form-label" for="new_post_food">food</label>
+    </div>
+    <div>
+        <input type="text" id="description" name="description" class="form-control"/>
+        <label class="form-label" for="description">description</label>
+        <!-- publish post button -->
+        <button type="submit" name="publishPost" value="publishPost">post</button>
+    </div>
+</form>
+<?php
+    if (isset($_POST['publishPost'])) {
+        # post dataa
+        if (empty($_POST['description'])) { $errors[] = 'description'; }
+        else { $description = mysqli_real_escape_string($conn, trim($_POST['description'])); }
+
+        # lookup food_id by food_name
+        $food = $_POST["new_post_food"];
+        $post_desc = $_POST["description"];
+        $food_id_q = mysqli_real_escape_string($conn, "select food_id from food");
+        $food_id_r = mysqli_query($conn, $food_id_q);
+        $food_id_row = $food_id_r->fetch_assoc();
+        
+        if (!empty($errors)) {  # missing form data for expected request
+            echo 'error: missing the following form data: <p id = "error_msg">';
+            foreach($errors as $msg) {
+                echo " $msg";
+            }
+            echo '<br>try again</p>';
+        } else {  # send query to register new user
+            # publish new post
+            $publish_q = mysqli_real_escape_string($conn, "insert into post values (NULL, $uid, $food_id_row, $post_desc, NULL)");
+            mysqli_query($conn, $publish_q);
+        }
+
+    }
 ?>
