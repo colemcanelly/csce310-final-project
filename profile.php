@@ -77,12 +77,12 @@
 <!-- food select -->
 <form autocomplete="on" method="post" action="" name="post-form">
     <div class="form-outline mb-4">
-        <input type="text" id="new_post_food" name= "new_post_food" class="form-control"/>
         <label class="form-label" for="new_post_food">select your food</label>
+        <input type="text" id="new_post_food" name= "new_post_food" class="form-control"/>
     </div>
     <div>
-        <input type="text" id="description" name="description" class="form-control"/>
         <label class="form-label" for="description">description</label>
+        <input type="text" id="description" name="description" class="form-control"/>
         <!-- publish post button -->
         <button type="submit" name="publishPost" value="publishPost">post</button>
     </div>
