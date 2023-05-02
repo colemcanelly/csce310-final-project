@@ -53,14 +53,14 @@ description
 <button type="submit" name="publishPost" value="publishPost">post</button>
 </form>
 <?php
-    # publish new post
     if (isset($_POST['publishPost'])) {
-        # validate post info: food, description
-        $post = mysqli_real_escape_string($conn, $_REQUEST['publishPost']);
-        /*         $fid = 
-        $query = "insert into post values
-        (NULL, uid, $food_id, , , , )"; # how do we get food_id?
-        $result = mysqli_query($conn, $query)  */
+        # get id matching food name
+        $food_name = mysqli_real_escape_string(trim($_POST['post_food']));
+        $food_id_q = mysqli_real_escape_string("select food_id from food where food_name = ".$food_name";");
+        $food_id_r = mysqli_query($conn, $food_id_q);
+        # publish new post
+        $publish_q = mysqli_real_escape_string($conn, "insert into post values (NULL, ".$uid.", ".$food_id.", ".$post_desc.", 0);"); # how do we get food_id?
+        $publish_r = mysqli_query($conn, $publish_q);
     }
 ?>
 <h2>My Post History</h2>
