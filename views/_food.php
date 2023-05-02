@@ -15,6 +15,11 @@
     <input type="text" id="foodName" name="foodName" class="form-control" />
   </div>
   <div class="form-outline mb-4">
+    <label class="form-label" for="foodId">Food ID</label>
+    <br>
+    <input type="text" id="foodId" name="foodId" class="form-control" />
+  </div>
+  <div class="form-outline mb-4">
     <label class="form-label" for="calories">Calories</label>
     <br>
     <input type="text" id="calories" name="calories" class="form-control" />
@@ -31,22 +36,18 @@
   </div>
   <!-- publish food button -->
   <button type="submit" name="postFood" value="postFood">Publish New Food</button>
-</form>
 
+  <hr>
 
-<!-- food dropdown selects an option from food table, NOTE: add_post.php does not exist currently -->
-<form action="add_post.php" method="post">
+  <h2>Delete Food</h2>
+<form action="food.php" method="post">
   <div class="form-outline mb-4">
-    <select name="foodName">
-      <option value="">Select a food</option>
-      <?php
-        include('config.php');
-        $query = "SELECT food_name FROM food";
-        $result = mysqli_query($conn, $query);
-        while ($row = mysqli_fetch_assoc($result)) {
-          echo '<option value="'.$row['food_name'].'">'.$row['food_name'].'</option>';
-        }
-      ?>
-    </select>
+    <label class="form-label" for="deleteFoodId">Food ID</label>
+    <br>
+    <input type="text" id="deleteFoodId" name="deleteFoodId" class="form-control" />
   </div>
+  <!-- delete food button -->
+  <button type="submit" name="deleteFood" value="deleteFood">Delete Food</button>
+</form>
+  
 </form>
