@@ -58,25 +58,37 @@ if (isset($_POST['searchFood'])) {
   }
 }
 
+//Get food info with cals
+// Retrieve the user input for the minimum number of calories
+if (isset($_POST['searchCals'])){
+  // Retrieve the user input for the minimum number of calories
+  $minCalories = mysqli_real_escape_string($conn, $_POST['calCount']);
+  // error check: prompt user to not leave any field blank
+  if (strlen(trim($minCalories)) == 0 ) {
+    echo "Enter a number";
+  }else{
+    // Build the query to retrieve the foods with more calories than the user input
+    //$query = "SELECT * FROM food WHERE calories > $minCalories ORDER BY food_name ASC";
+    $query = "SELECT * FROM food USE INDEX (idx_calories) WHERE calories > $minCalories ORDER BY food_name ASC";
 
-// Delete selected food item
-if (isset($_POST['deleteFood'])) {
-  $foodId = $_POST['deleteFoodId'];
-  if (empty($foodId)) {
-    echo "Please enter a food id to delete.";
-  } else {
-    $query = "DELETE FROM food WHERE food_id = $foodId";
+    // Execute the query and retrieve the results
     $result = mysqli_query($conn, $query);
-    if (!$result) {
-      echo "Error deleting food: " . mysqli_error($conn);
-    } else if (mysqli_affected_rows($conn) == 0) {
-      echo "No food found with id $foodId.";
+
+    // Check if any rows were returned
+    if (mysqli_num_rows($result) > 0) {
+        // Loop through the rows and display the foods
+        while ($row = mysqli_fetch_assoc($result)) {
+            // Output the food information
+            echo "<p>Food Name: " . $row['food_name'] . "</p>";
+            echo "<p>Food ID: " . $row['food_id'] . "</p>";
+            echo "<p>Calories: " . $row['calories'] . "</p>";
+            echo "<p>Protein: " . $row['protein'] . "</p>";
+            echo "<p>Carbs: " . $row['carbs'] . "</p>";
+        }
     } else {
-      echo "Food with id $foodId deleted successfully!";
+        // No foods were found with more calories than the user input
+        echo "<p>No foods found with more than $minCalories calories.</p>";
     }
   }
-}
 
-mysqli_close($conn);
-
-?>
+  }
