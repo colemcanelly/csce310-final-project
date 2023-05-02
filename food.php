@@ -38,6 +38,27 @@ if (isset($_POST['postFood'])) {
   }
 }
 
+//use a view to show how many foods have the same name?
+if (isset($_POST['searchFood'])) {
+  // Retrieve the food name entered by the user
+  $foodName = mysqli_real_escape_string($conn, $_POST['getFoods']);
+
+  // Query the food_names view to get the food ids associated with the given food name
+  $query = "SELECT food_ids FROM food_names WHERE food_name = '$foodName';";
+  $result = mysqli_query($conn, $query);
+
+  // Check if the query returned any rows
+  if (mysqli_num_rows($result) > 0) {
+      // Output the food ids associated with the given food name
+      $row = mysqli_fetch_assoc($result);
+      echo "Food IDs for $foodName: " . $row['food_ids'];
+  } else {
+      // Output a message indicating that no foods were found with the given name
+      echo "No foods found with name: $foodName";
+  }
+}
+
+
 // Delete selected food item
 if (isset($_POST['deleteFood'])) {
   $foodId = $_POST['deleteFoodId'];
