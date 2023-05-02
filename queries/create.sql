@@ -89,7 +89,16 @@ create index user_food_idx ON food (user_id);
 
  /* view written by Ian Beckett */
  /* show user's profile data and foods they've added */
-create view if not exists user_profile as
+create view if not exists user_food as
+    select
+        `user`.`first_name`,
+        `user`.`last_name`,
+        `food`.`food_name`,
+        `food`.`calories`,
+        `food`.`protein`,
+        `food`.`carbs`
+from `user` inner join `food` using (`user_id`);
+/* create view if not exists user_profile as
     select
         `user`.`first_name`,
         `user`.`last_name`,
@@ -97,4 +106,4 @@ create view if not exists user_profile as
         `user`.`email`,
         `user`.`account_type`,
         `food`.`food_name`
-    from `user` inner join `food` using (`user_id`);
+    from `user` inner join `food` using (`user_id`); */

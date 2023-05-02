@@ -40,26 +40,27 @@
 ?>
 <h2>New Post</h2>
 <!-- food select -->
-<form autocomplete="on" action="" name="choose_food">
-<div class="form-outline mb-4">
-<input type="text" id="new_post_food" name= "new_post_food" class="form-control"/>
-<label class="form-label" for="new_post_food">food</label>
-</div>
+<form autocomplete="on" method="post" action="" name="post-form">
+    <div class="form-outline mb-4">
+        <input type="text" id="new_post_food" name= "new_post_food" class="form-control"/>
+        <label class="form-label" for="new_post_food">food</label>
+    </div>
+    <div>
+        <textarea>description</textarea>
+        <button type="submit" name="publishPost" value="publishPost">post</button>
+    </div>
 </form>
-description
 <!-- publish post button -->
-<form action="">
-<textarea ></textarea>
-<button type="submit" name="publishPost" value="publishPost">post</button>
-</form>
 <?php
     if (isset($_POST['publishPost'])) {
-        # get id matching food name
-        $food_name = mysqli_real_escape_string(trim($_POST['post_food']));
-        $food_id_q = mysqli_real_escape_string("select food_id from food where food_name = ".$food_name";");
+        # lookup food_id by food_name
+        $new_food = $_POST['new_post_food'];
+        $food_id_q = mysqli_real_escape_string($conn, "select food_id from food where food_name = $new_food;");
         $food_id_r = mysqli_query($conn, $food_id_q);
+        echo $food_id_r;
+        $food_id = $food_id_r;
         # publish new post
-        $publish_q = mysqli_real_escape_string($conn, "insert into post values (NULL, ".$uid.", ".$food_id.", ".$post_desc.", 0);"); # how do we get food_id?
+        $publish_q = mysqli_real_escape_string($conn, "insert into post values (NULL, ".$uid.", ".$food_id.", ".$post_desc.", 0);");
         $publish_r = mysqli_query($conn, $publish_q);
     }
 ?>
