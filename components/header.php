@@ -18,6 +18,9 @@
           <li class="nav-item">
             <a href="./food.php" class="btn btn-secondary btn-lg" role="button">Food</a>
           </li>
+          <li class="nav-item">
+            <a href="./logout.php" class="btn btn-secondary btn-lg" role="button">Logout</a>
+          </li>
         </ul>
       </div>
     </div>
