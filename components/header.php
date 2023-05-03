@@ -10,10 +10,21 @@
             <a href="./profile.php" class="btn btn-secondary btn-lg" role="button">Profile</a>
           </li>
           <li class="nav-item">
-            <a href="./login.php" class="btn btn-secondary btn-lg" role="button">Login</a>
+            <a href="./schedule.php" class="btn btn-secondary btn-lg" role="button">Schedule</a>
           </li>
           <li class="nav-item">
-            <a href="./schedule.php" class="btn btn-secondary btn-lg" role="button">Schedule</a>
+            <a href="./food.php" class="btn btn-secondary btn-lg" role="button">Food</a>
+          </li>
+          <li class="nav-item">
+            <?php
+              if (isset($_SESSION['user_id'])) {
+                // user is logged in, display logout button
+                echo '<a href="./logout.php" class="btn btn-secondary btn-lg" role="button">Logout</a>';
+              } else {
+                // user is not logged in, display login button
+                echo '<a href="./login.php" class="btn btn-secondary btn-lg" role="button">Login</a>';
+              }
+            ?>
           </li>
         </ul>
       </div>

@@ -83,3 +83,37 @@ create table comment
     emoji           varchar(30),
     comment_text    varchar(255)
 );
+
+/*Margaret Zhuang, shows food ids with the same name*/
+CREATE VIEW food_names AS
+SELECT food_name, GROUP_CONCAT(food_id ORDER BY food_id) AS food_ids
+FROM food
+GROUP BY food_name;
+
+/*Margaret Zhuang, index to food info above a certain calorie count*/
+CREATE INDEX idx_calories ON food (calories);
+
+/* index written by Ian Beckett */
+create index user_food_idx ON food (user_id);
+
+ /* view written by Ian Beckett */
+ /* show user's profile data and foods they've added */
+create view if not exists user_food as
+    select
+        `user`.`first_name`,
+        `user`.`last_name`,
+        `food`.`food_name`,
+        `food`.`calories`,
+        `food`.`protein`,
+        `food`.`carbs`
+from `user` inner join `food` using (`user_id`);
+/* create view if not exists user_profile as
+    select
+        `user`.`first_name`,
+        `user`.`last_name`,
+        `user`.`dob`,
+        `user`.`email`,
+        `user`.`account_type`,
+        `food`.`food_name`
+    from `user` inner join `food` using (`user_id`); */
+  

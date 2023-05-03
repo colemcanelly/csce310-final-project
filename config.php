@@ -1,3 +1,4 @@
+<!-- written by Ian Beckett and Cole McAnelly -->
 <?php
     $servername = 'localhost';
     $username = 'root';
