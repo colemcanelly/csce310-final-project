@@ -4,8 +4,7 @@ session_start();
 
 $_SESSION = array();
 
-// If it's desired to kill the session, also delete the session cookie.
-// Note: This will destroy the session, and not just the session data!
+// delete the session cookie
 if (ini_get("session.use_cookies")) {
     $params = session_get_cookie_params();
     setcookie(session_name(), '', time() - 42000,
@@ -14,7 +13,7 @@ if (ini_get("session.use_cookies")) {
     );
 }
 
-// Finally, destroy the session.
+// destroy the session
 session_destroy();
 header("Location: index.php")
 ?>

@@ -14,7 +14,7 @@ create table user
     first_name      varchar(255)    not null,
     last_name       varchar(255)    not null,
     dob             date            not null,
-    email           varchar(255)    not null,
+    email           varchar(255)    not null unique,
     passphrase      varchar(255)    not null,
     account_type    int             not null
 );
