@@ -3,7 +3,7 @@
     $title = 'My Profile';
     $childView = 'views/_profile.php';
     include('layouts/default.php');
-    include_once('config.php');
+    include_once('middleware/config.php');
 ?>
 
 <section>

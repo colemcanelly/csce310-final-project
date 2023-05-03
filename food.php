@@ -3,7 +3,7 @@
 $title = 'My Food';
 $childView = 'views/_food.php';
 include('layouts/default.php');
-include_once('config.php');
+include_once('middleware/config.php');
 
 if (isset($_POST['postFood'])) {
   $food_id = mysqli_real_escape_string($conn, $_POST['foodId']);
@@ -28,7 +28,8 @@ if (isset($_POST['postFood'])) {
       }
     } else {
       // Insert new food item
-      $query = "INSERT INTO food (food_id, food_name, calories, protein, carbs) VALUES ('$food_id', '$food_name', '$calories', '$protein', '$carbs')";
+      $userid = $_SESSION['user_id'];   // colemcanelly
+      $query = "INSERT INTO food (food_id, user_id, food_name, calories, protein, carbs) VALUES ('$food_id', $userid,'$food_name', '$calories', '$protein', '$carbs')";
       if (mysqli_query($conn, $query)) {
         echo "Food added successfully";
       } else {
