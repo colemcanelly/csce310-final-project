@@ -1,3 +1,4 @@
+<!-- Written by Cole McAnelly -->
 <?php session_start() ?> <!-- retain session data across multiple pages -->
 <!DOCTYPE html>
 <html lang="en" class="h-100">
@@ -19,14 +20,18 @@
 </head>
 
 <body class="h-100 d-flex flex-column">
-<?php include("components/header.php"); ?>
-<?php include($childView); ?>
-<?php include('config.php'); ?>
+  <?php include('middleware/config.php'); ?>
+  <?php include("components/header.php"); ?>
+  <?php include($childView); ?>
 
   <!-- BOOTSTRAP SCRIPTS -->
   <!-- MDB https://mdbootstrap.com/docs/ -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.js"></script>
   <script>
+    // Tentatively test SESSION tokens
+    console.log("USERID: <?php echo $_SESSION['user_id']; ?>");
+    console.log("FNAME: <?php echo $_SESSION['first_name']; ?>");
+    console.log("LNAME: <?php echo $_SESSION['last_name']; ?>");
     // setTimeout(() => {
     //   window.location.reload();
     // }, 5000);

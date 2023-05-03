@@ -3,24 +3,23 @@
 $title = 'My Food';
 $childView = 'views/_food.php';
 include('layouts/default.php');
-include_once('config.php');
+include_once('middleware/config.php');
 
 if (isset($_POST['postFood'])) {
-  $food_id = mysqli_real_escape_string($conn, $_POST['foodId']);
   $food_name = mysqli_real_escape_string($conn, $_POST['foodName']);
   $calories = mysqli_real_escape_string($conn, $_POST['calories']);
   $protein = mysqli_real_escape_string($conn, $_POST['protein']);
   $carbs = mysqli_real_escape_string($conn, $_POST['carbs']);
 
   // error check: prompt user to not leave any field blank
-  if (strlen(trim($food_id)) == 0 ||strlen(trim($food_name)) == 0 || strlen(trim($calories)) == 0 || strlen(trim($protein)) == 0 || strlen(trim($carbs)) == 0) {
+  if (strlen(trim($food_name)) == 0 || strlen(trim($calories)) == 0 || strlen(trim($protein)) == 0 || strlen(trim($carbs)) == 0) {
     echo "All fields are required";
   } else {
     // Check if food_id already exists in database
-    $existing_food = mysqli_query($conn, "SELECT * FROM food WHERE food_id = '$food_id'");
+    $existing_food = mysqli_query($conn, "SELECT * FROM food WHERE food_name = '$food_name'");
     if(mysqli_num_rows($existing_food) > 0) {
       // Update existing food item
-      $query = "UPDATE food SET food_name='$food_name', calories='$calories', protein='$protein', carbs='$carbs' WHERE food_id='$food_id'";
+      $query = "UPDATE food SET calories='$calories', protein='$protein', carbs='$carbs' WHERE food_name='$food_name'";
       if (mysqli_query($conn, $query)) {
         echo "Food updated successfully";
       } else {
@@ -28,7 +27,8 @@ if (isset($_POST['postFood'])) {
       }
     } else {
       // Insert new food item
-      $query = "INSERT INTO food (food_id, food_name, calories, protein, carbs) VALUES ('$food_id', '$food_name', '$calories', '$protein', '$carbs')";
+      $userid = $_SESSION['user_id'];   // colemcanelly
+      $query = "INSERT INTO food (food_id, user_id, food_name, calories, protein, carbs) VALUES (NULL, $userid,'$food_name', '$calories', '$protein', '$carbs')";
       if (mysqli_query($conn, $query)) {
         echo "Food added successfully";
       } else {
@@ -57,6 +57,24 @@ if (isset($_POST['searchFood'])) {
       echo "No foods found with name: $foodName";
   }
 }
+
+  // Delete selected food item
+  if (isset($_POST['deleteFood'])) {
+    $foodId = $_POST['deleteFoodId'];
+    if (empty($foodId)) {
+      echo "Please enter a food id to delete.";
+    } else {
+      $query = "DELETE FROM food WHERE food_id = $foodId";
+      echo "Delete successful";
+      // Execute the query and retrieve the results
+      $result = mysqli_query($conn, $query);
+      if (!$result) {
+        echo "Error deleting food: " . mysqli_error($conn);
+      } else if (mysqli_affected_rows($conn) == 0) {
+        echo "No food found with id $foodId.";
+      }
+    }
+  }
 
 //Get food info with cals
 // Retrieve the user input for the minimum number of calories
