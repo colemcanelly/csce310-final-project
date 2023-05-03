@@ -15,11 +15,6 @@
     <input type="text" id="foodName" name="foodName" class="form-control" />
   </div>
   <div class="form-outline mb-4">
-    <label class="form-label" for="foodId">Food ID</label>
-    <br>
-    <input type="text" id="foodId" name="foodId" class="form-control" />
-  </div>
-  <div class="form-outline mb-4">
     <label class="form-label" for="calories">Calories</label>
     <br>
     <input type="text" id="calories" name="calories" class="form-control" />
