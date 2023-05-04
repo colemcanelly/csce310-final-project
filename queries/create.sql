@@ -36,8 +36,10 @@ create table food
 create table meal_event
 (
     event_id        int             PRIMARY KEY         AUTO_INCREMENT,
+    meal_name      varchar(255),
     meal_date       date,
-    meal_time       time,
+    meal_start_time time,
+    meal_end_time   time,
     user_id         int,
     CONSTRAINT `fk_event_user`
         FOREIGN KEY (user_id) REFERENCES user (user_id)
@@ -116,4 +118,8 @@ from `user` inner join `food` using (`user_id`);
         `user`.`account_type`,
         `food`.`food_name`
     from `user` inner join `food` using (`user_id`); */
+
+
+-- Cole McAnelly: Index for each user's events
+CREATE INDEX user_events ON meal_event (user_id);
   

@@ -4,7 +4,7 @@
     $childView = 'views/_login.php';
     include('layouts/default.php');
 
-    if ($_SERVER[ 'REQUEST_METHOD'] == 'POST') {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         # detect if user is doing login or registration      
         if (isset($_POST['login'])) {
             include('login_action.php');

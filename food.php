@@ -3,7 +3,7 @@
 $title = 'My Food';
 $childView = 'views/_food.php';
 include('layouts/default.php');
-include_once('middleware/config.php');
+include_once('api/config.php');
 
 if (isset($_POST['postFood'])) {
   $food_name = mysqli_real_escape_string($conn, $_POST['foodName']);

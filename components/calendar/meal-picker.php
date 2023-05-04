@@ -1,12 +1,14 @@
-<select id="select-food" name="select-food" class="select form-control active" value="">
-  <option value="1">Stew</option>
-  <option value="2">BBQ</option>
-  <option value="3">Hamburger</option>
-  <option value="4">Soup</option>
-  <option value="5">Enchiladas</option>
-  <option value="6">Sandwich</option>
-  <option value="7">Cereal</option>
-  <option value="8">Grilled Chicken</option>
+<!-- Created by Cole McAnelly -->
+<select required id="food-id" name="food-id" class="select form-control active" value="">
+  <?php
+  $userid = $_SESSION['user_id'];
+  $query = "SELECT food_id, food_name FROM food WHERE user_id = $userid;";
+  $result = mysqli_query($conn, $query);
+  while ($row = mysqli_fetch_assoc($result)) {
+    $id = $row["food_id"];
+    $name = $row["food_name"];
+    echo "<option value=\"{$id}\">{$name}</option>";
+  }
+  ?>
 </select>
-
-<!-- TODO: Get meals from database -->
+<!-- DONE: Get meals from database -->
