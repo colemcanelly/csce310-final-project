@@ -1,4 +1,4 @@
-<!-- written by Ian Beckett -->
+<!-- written by Ian Beckett and editted by thuc-->
 <?php
     $title = 'Home Page';
     $childView = 'views/_index.php';
@@ -13,12 +13,36 @@
     # list my posts ordered by reverse id (recent) WIP
     $post_q = "select * from post where flag = 0 order by post_id desc";
     $post_r = mysqli_query($conn, $post_q);
+    $adminType = 1;
+    # checks if admin
+    if (isset($_SESSION['user_id'])) {
+    $uid = $_SESSION["user_id"];
+    $user_q = "select account_type from user where user_id = ".$uid;
+    $result = $conn->query($user_q);
+    $row = $result->fetch_assoc();
+    $adminType = $row["account_type"];
+    }
     if ($post_r->num_rows > 0) { # apparently returns true even on empty set; find alternative
         while($post_row = $post_r->fetch_assoc()) {
             $food_q = "select food_name from food where food_id = ".$post_row["food_id"];
             $food_r = mysqli_query($conn, $food_q);
             $food_row = $food_r->fetch_assoc();
-            echo $post_row["post_id"]." | ".$food_row["food_name"]." | ".$post_row["post_desc"]."<br>";
+
+            echo '<div style="display:flex; align-items:center;">';
+            echo $post_row["post_id"]." | ".$food_row["food_name"]." | ".$post_row["post_desc"];
+            # show delete button if user is admin
+            if($adminType == 2){
+                echo '<form method="post" action="">';
+                echo '<input type="hidden" name="postID" value="'.$post_row["post_id"].'" />';
+                echo '<button type="submit" name="deletePost" value="deletePost" style="margin-left: 10px;">delete post</button>';
+                echo '</form>';
+                if (isset($_POST['deletePost'])){
+                    $postID = $_POST["postID"];
+                    $deleteQuery = "delete from post where post_id = $postID";
+                    $query = mysqli_query($conn, $deleteQuery);
+                }
+            }
+            echo '</div>';
             # show comments below the post
             $comment_q = "select * from comment where post_id = ".$post_row["post_id"]." order by comment_id";
             $comment_r = mysqli_query($conn, $comment_q);
@@ -35,6 +59,7 @@
             }
         }
     }
+
 ?>
 
 <section>
