@@ -34,7 +34,7 @@
             if($adminType == 2){
                 echo '<form method="post" action="">';
                 echo '<input type="hidden" name="postID" value="'.$post_row["post_id"].'" />';
-                echo '<button type="submit" name="deletePost" value="deletePost" style="margin-left: 10px;">delete post</button>';
+                echo '<button type="submit" name="deletePost" value="deletePost" style="margin-left: 10px;">delete</button>';
                 echo '</form>';
                 if (isset($_POST['deletePost'])){
                     $postID = $_POST["postID"];

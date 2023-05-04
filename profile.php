@@ -1,4 +1,4 @@
-<!-- written by Ian Beckett -->
+<!-- written by Ian Beckett, editted by thuc -->
 <?php
     $title = 'My Profile';
     $childView = 'views/_profile.php';
@@ -28,11 +28,23 @@
 <?php
     # using a view, show foods this user has added
     echo "Name | Calories | Protein | Carbs<br>";
-    $profile_q = "select food_name, calories, protein, carbs from food where user_id = ".$uid;
+    $profile_q = "select food_name, calories, protein, carbs, food_id from food where user_id = ".$uid;
     $result = $conn->query($profile_q);
     if ($result->num_rows > 0) { # apparently returns true even on empty set; find alternative
         while($row = $result->fetch_assoc()) {
-          echo $row["food_name"]." | ".$row["calories"]." | ".$row["protein"]." | ".$row["carbs"]."<br>";
+            echo '<div style="display:flex; align-items:center;">';
+            echo $row["food_name"]." | ".$row["calories"]." | ".$row["protein"]." | ".$row["carbs"];
+            echo '<form method="post" action="">';
+            echo '<input type="hidden" name="foodID" value="'.$row["food_id"].'" />';
+            echo '<button type="submit" name="deleteFood" value="deleteFood" style="margin-left: 10px;">delete</button>';
+            echo '</form>';
+            if (isset($_POST['deleteFood'])){
+                $foodID = $_POST["foodID"];
+                $deleteQuery = "delete from food where food_id = $foodID";
+                $query = mysqli_query($conn, $deleteQuery);
+            }
+            echo '</div>';
+
         }
     } else {
         echo "0 results";
