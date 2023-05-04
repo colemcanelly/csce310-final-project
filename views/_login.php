@@ -69,8 +69,8 @@
           <div class="form-outline my-3">
             <select id="registerAccountType" name="registerAccountType" class="select form-control">
               <option value=""></option>
-              <option value="1">Admin</option>
-              <option value="2">Member</option>
+              <option value="2">Admin</option>
+              <option value="1">Member</option>
             </select>
             <label class="form-label" for="registerAccountType">Account type</label>
             <div class="form-notch">
