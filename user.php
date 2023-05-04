@@ -1,4 +1,4 @@
-// thuc
+<!-- thuc-->
 <?php
     $title = 'Users';
     $childView = 'views/_index.php';
