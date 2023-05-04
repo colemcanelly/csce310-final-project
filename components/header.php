@@ -19,6 +19,15 @@
             <?php
               if (isset($_SESSION['user_id'])) {
                 // user is logged in, display logout button
+                $uid = $_SESSION["user_id"];
+                $user_q = "select account_type from user where user_id = ".$uid;
+                $result = $conn->query($user_q);
+                $row = $result->fetch_assoc();
+                $adminType = $row["account_type"];
+                if($adminType == 2)
+                {
+                  echo '<a href="./user.php" class="btn btn-secondary btn-lg" role="button">Users</a>';
+                }
                 echo '<a href="./logout.php" class="btn btn-secondary btn-lg" role="button">Logout</a>';
               } else {
                 // user is not logged in, display login button
