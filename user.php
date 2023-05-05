@@ -10,6 +10,7 @@
 </section>
 
 <?php
+    # prints all the users
     echo "ID | First | Last | Email<br>";
     $user_q = "select * from user where account_type = 1";
     $user_r = mysqli_query($conn, $user_q);
@@ -22,6 +23,7 @@
     $row = $result->fetch_assoc();
     $adminType = $row["account_type"];
     }
+    # goes through user db and prints out all user
     if ($adminType == 2) {
         while($user_row = $user_r->fetch_assoc()) {
             echo '<div style="display:flex; align-items:center;">';
@@ -30,6 +32,7 @@
             echo '<input type="hidden" name="userID" value="'.$user_row["user_id"].'" />';
             echo '<button type="submit" name="deleteUser" value="deleteUser" style="margin-left: 10px;">delete</button>';
             echo '</form>';
+            # delete from db if button clicked
             if (isset($_POST['deleteUser'])){
                 $userID = $_POST["userID"];
                 $deleteQuery = "delete from user where user_id = $userID";
