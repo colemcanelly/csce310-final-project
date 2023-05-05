@@ -1,3 +1,4 @@
+<!-- By: Cole McAnelly                              -->
 <!-- Modal -->
 <div class="modal top " id="newEventModal" tabindex="-1" aria-labelledby="newEventModalLabel" aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">
   <div class="modal-dialog modal-sm ">
@@ -24,8 +25,12 @@
           </section>
           <section>
             <div class="form-outline my-3">
-              <!-- <input required type="text"  class="" value=""> -->
-              <?php include_once('./components/calendar/meal-picker.php'); ?>
+              <select required id="food-id" name="food-id" class="select form-control active" value="">
+              <?php 
+                $component_id = 'food-id';
+                include('./components/calendar/meal-picker.php');
+                ?>
+              </select>
               <label class="form-label" for="food-id" style="margin-left: 0px;">
                 Food
               </label>
@@ -40,7 +45,7 @@
             <div class="row my-3">
               <div>
                 <div class="form-outline datepicker">
-                  <input required type="date" id="event-date" name="event-date" class="form-control calendar-date-input active" value="2023-04-27">
+                  <input required type="date" id="event-date" name="event-date" class="form-control calendar-date-input active" value="2023-05-04">
                   <label class="form-label" for="event-date" style="margin-left: 0px;">
                     Date
                   </label>
@@ -86,7 +91,7 @@
         </div>
         <!-- ------------------------------------------------- -->
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-mdb-dismiss="modal">Close</button>
+          <input type="hidden" id="form-type" name="new-meal" value="true">
           <button type="submit" class="btn btn-primary">Add</button>
         </div>
       </form>
@@ -107,6 +112,9 @@
         },
         error: (res) => {}
       });
+      setTimeout(() => {
+        calendar.render();
+      }, 2000);
       false;
     });
   });

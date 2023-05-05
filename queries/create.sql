@@ -1,5 +1,5 @@
 -- written by Ian Beckett and Cole McAnelly
--- DROP all tables to create new entries
+-- DROP all tables and views to create new entries
 /* needs to follow a certain order so that FK constraints dont prevent drop */
 DROP TABLE
     comment,
@@ -7,6 +7,9 @@ DROP TABLE
     post,
     food,
     user;
+
+DROP VIEW food_id_name;
+DROP VIEW food_names;
 
 create table user
 (
@@ -120,6 +123,19 @@ from `user` inner join `food` using (`user_id`);
     from `user` inner join `food` using (`user_id`); */
 
 
+
+
 -- Cole McAnelly: Index for each user's events
-CREATE INDEX user_events ON meal_event (user_id);
-  
+CREATE INDEX user_event_idx ON meal_event (user_id);
+
+-- Cole McAnelly: View for getting the id and name of each food
+-- Used in ./foodies/components/calendar/meal-picker.php
+CREATE VIEW food_id_name AS
+SELECT `user_id`, `food_id`, `food_name`
+FROM `food`;
+    
+
+-- Example data for testing purposes
+LOAD DATA INFILE '/xampp/htdocs/foodies/queries/users.csv' INTO TABLE user FIELDS TERMINATED BY ',';
+LOAD DATA INFILE '/xampp/htdocs/foodies/queries/food.csv' INTO TABLE food FIELDS TERMINATED BY ',';
+LOAD DATA INFILE '/xampp/htdocs/foodies/queries/meals.csv' INTO TABLE meal_event FIELDS TERMINATED BY ',';

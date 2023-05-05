@@ -1,3 +1,4 @@
+<!-- By: Cole McAnelly                              -->
 <div id="calendar" class="mx-auto mt-5"></div>
 
 <style>
@@ -22,15 +23,48 @@
       slotLabelInterval: '01:00',
       scrollTime: '08:00',
       initialView: 'timeGridWeek',
-      initialDate: '2023-04-07',
+      initialDate: '2023-05-04',
       customButtons: {
         addEvent: {
           text: 'NEW EVENT',
-          click: function() {
+          click: () => {
             $('#newEventModal').modal('show');
-            // alert('clicked the custom button!');
           }
         }
+      },
+      eventClick: (info) => {
+        // Hide the title section
+        $('#edit-title-section').hide();
+
+        // Disable the form input
+        $('#edit-food-id').prop('disabled', true);
+        $('#edit-event-date').prop('disabled', true);
+        $('#edit-start-time').prop('disabled', true);
+        $('#edit-end-time').prop('disabled', true);
+        
+        // Hide the update and delete buttons. Show the edit button
+        $('#btn-delete').hide();
+        $('#btn-update').hide();
+        $('#btn-edit').show();
+
+        $('#editEventModalLabel').text(info.event.title);
+
+        // Set the attributes
+        let event_id = info.event.extendedProps.eventId;
+        let option_id = info.event.extendedProps.foodId;
+        let start_date_time = new Date(info.event.start);
+        let date = start_date_time.toISOString().split("T")[0];
+        let start = start_date_time.toTimeString().split(' ')[0];
+        let end = new Date(info.event.end).toTimeString().split(' ')[0];
+        $('#edit-event-id').prop('value', event_id);
+        $('#edit-event-title').prop('value', info.event.title);
+        $(`#edit-food-id--${option_id}`).prop('selected', true);
+        $('#edit-event-date').prop('value', date);
+        $('#edit-start-time').prop('value', start);
+        $('#edit-end-time').prop('value', end);
+        
+        // Show the popup
+        $('#editEventModal').modal('show');
       },
       headerToolbar: {
         left: 'dayGridMonth,timeGridWeek,timeGridDay',
@@ -44,57 +78,9 @@
         day: 'DAY'
       },
       // Dummy events
-      events: [{
-          title: 'All Day Event',
-          start: '2023-04-01'
-        },
-        {
-          title: 'Long Event',
-          start: '2023-04-07',
-          end: '2023-04-10'
-        },
-        {
-          groupId: '999',
-          title: 'Repeating Event',
-          start: '2023-04-09T16:00:00'
-        },
-        {
-          groupId: '999',
-          title: 'Repeating Event',
-          start: '2023-04-16T16:00:00'
-        },
-        {
-          title: 'Conference',
-          start: '2023-04-11',
-          end: '2023-04-13'
-        },
-        {
-          title: 'Meeting',
-          start: '2023-04-12T10:30:00',
-          end: '2023-04-12T12:30:00'
-        },
-        {
-          title: 'Lunch',
-          start: '2023-04-12T12:00:00'
-        },
-        {
-          title: 'Meeting',
-          start: '2023-04-12T14:30:00'
-        },
-        {
-          title: 'Birthday Party',
-          start: '2023-04-13T07:00:00'
-        },
-        {
-          title: 'Click for Google',
-          url: 'http://google.com/',
-          start: '2023-04-28'
-        }
-      ]
+      events: './api/calendar.php'
     });
 
     calendar.render();
   });
 </script>
-
-<!-- TODO: Get `events` from DB -->
