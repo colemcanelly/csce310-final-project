@@ -1,10 +1,12 @@
-<!-- written by Ian Beckett and Cole McAnelly -->
+<!-- written by Ian Beckett and Cole McAnelly 
+provides interface and backend functionality for login page, including registration
+-->
 <?php
     $title = 'Login';
     $childView = 'views/_login.php';
     include('layouts/default.php');
 
-    if ($_SERVER[ 'REQUEST_METHOD'] == 'POST') {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         # detect if user is doing login or registration      
         if (isset($_POST['login'])) {
             include('login_action.php');

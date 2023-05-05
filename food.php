@@ -3,7 +3,7 @@
 $title = 'My Food';
 $childView = 'views/_food.php';
 include('layouts/default.php');
-include_once('middleware/config.php');
+include_once('api/config.php');
 
 if (isset($_POST['postFood'])) {
   $food_name = mysqli_real_escape_string($conn, $_POST['foodName']);
@@ -60,22 +60,22 @@ if (isset($_POST['searchFood'])) {
 
   // delete this?
   // Delete selected food item
-  // if (isset($_POST['deleteFood'])) {
-  //   $foodId = $_POST['deleteFoodId'];
-  //   if (empty($foodId)) {
-  //     echo "Please enter a food id to delete.";
-  //   } else {
-  //     $query = "DELETE FROM food WHERE food_id = $foodId";
-  //     echo "Delete successful";
-  //     // Execute the query and retrieve the results
-  //     $result = mysqli_query($conn, $query);
-  //     if (!$result) {
-  //       echo "Error deleting food: " . mysqli_error($conn);
-  //     } else if (mysqli_affected_rows($conn) == 0) {
-  //       echo "No food found with id $foodId.";
-  //     }
-  //   }
-  // }
+  if (isset($_POST['deleteFood'])) {
+    $foodId = $_POST['deleteFoodId'];
+    if (empty($foodId)) {
+      echo "Please enter a food id to delete.";
+    } else {
+      $query = "DELETE FROM food WHERE food_id = $foodId";
+      echo "Delete successful";
+      // Execute the query and retrieve the results
+      $result = mysqli_query($conn, $query);
+      if (!$result) {
+        echo "Error deleting food: " . mysqli_error($conn);
+      } else if (mysqli_affected_rows($conn) == 0) {
+        echo "No food found with id $foodId.";
+      }
+    }
+  }
 
 //Get food info with cals
 // Retrieve the user input for the minimum number of calories
