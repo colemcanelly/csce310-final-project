@@ -1,4 +1,6 @@
-<!-- written by Ian Beckett -->
+<!-- written by Ian Beckett 
+used by login_action to perform login validation
+-->
 <?php
 # check login credentials
 function validate($conn, $email='', $pwd='') {
