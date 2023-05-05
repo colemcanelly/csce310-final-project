@@ -4,7 +4,6 @@
 <style>
   #calendar {
     max-width: 1100px;
-    /* overflow: hidden; */
     height: 84vh;
   }
 </style>
@@ -16,6 +15,7 @@
     var calendarEl = document.getElementById('calendar');
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
+      events: './api/calendar.php',
       themeSystem: 'bootstrap',
       allDaySlot: false,
       expandRows: true,
@@ -76,9 +76,7 @@
         month: 'MONTH',
         week: 'WEEK',
         day: 'DAY'
-      },
-      // Dummy events
-      events: './api/calendar.php'
+      }
     });
 
     calendar.render();

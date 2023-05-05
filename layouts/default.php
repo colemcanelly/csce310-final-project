@@ -27,6 +27,7 @@
   <!-- MDB https://mdbootstrap.com/docs/ -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.js"></script>
   <script>
+    console.log("<?php echo $_SESSION['account_type']; ?>")
     // setTimeout(() => {
     //   window.location.reload();
     // }, 5000);

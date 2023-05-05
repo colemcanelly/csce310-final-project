@@ -10,7 +10,7 @@ function validate($conn, $email='', $pwd='') {
     if (empty($pwd)) { $errors[] = 'enter password'; }
     else { $p = mysqli_real_escape_string($conn, trim($pwd)); }
     if (empty($errors)) {
-        $query = "select user_id, first_name, last_name from user where email = '$e' and passphrase = '$p'";
+        $query = "select user_id, first_name, last_name, account_type from user where email = '$e' and passphrase = '$p'";
         $result = mysqli_query($conn, $query);
         if (mysqli_num_rows($result) == 1) {
             $row = mysqli_fetch_array($result, MYSQLI_ASSOC);

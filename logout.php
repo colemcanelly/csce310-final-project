@@ -1,7 +1,5 @@
 <!-- thuc -->
 <?php
-session_start();
-
 $_SESSION = array();
 
 // delete the session cookie
