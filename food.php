@@ -58,7 +58,6 @@ if (isset($_POST['searchFood'])) {
   }
 }
 
-  // delete this?
   // Delete selected food item
   if (isset($_POST['deleteFood'])) {
     $foodId = $_POST['deleteFoodId'];
