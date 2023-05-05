@@ -67,7 +67,18 @@ foods, post history, and the functionality to write new posts
             $food_q = "select food_name from food where food_id = ".$post_row["food_id"];
             $food_r = mysqli_query($conn, $food_q);
             $food_row = $food_r->fetch_assoc();
+            echo '<div style="display:flex; align-items:center;">';
             echo $post_row["post_id"]." | ".$food_row["food_name"]." | ".$post_row["post_desc"]."<br>";
+            echo '<form method="post" action="">';
+            echo '<input type="hidden" name="postID" value="'.$post_row["post_id"].'" />';
+            echo '<button type="submit" name="deletePost" value="deletePost" style="margin-left: 10px;">delete</button>';
+            echo '</form>';
+            if (isset($_POST['deletePost'])){
+                $postID = $_POST["postID"];
+                $deleteQuery = "delete from post where post_id = $postID";
+                $query = mysqli_query($conn, $deleteQuery);
+            }
+            echo '</div>';
             # show comments below the post
             $comment_q = "select * from comment where post_id = ".$post_row["post_id"]." order by comment_id";
             $comment_r = mysqli_query($conn, $comment_q);
