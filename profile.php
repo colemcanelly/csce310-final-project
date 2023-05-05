@@ -1,4 +1,7 @@
-<!-- written by Ian Beckett, editted by thuc -->
+<!-- written by Ian Beckett, editted by thuc 
+provides the UI and backend for the user profile, including profile info, 
+foods, post history, and the functionality to write new posts
+-->
 <?php
     $title = 'My Profile';
     $childView = 'views/_profile.php';
@@ -56,7 +59,7 @@
 </section>
 <?php
     echo "post ID | Food | Description<br>";
-    # list my posts ordered by reverse id (recent) WIP
+    # list my posts ordered by reverse id (recent)
     $post_q = "select * from post where user_id = $uid and flag = 0 order by post_id desc";
     $post_r = mysqli_query($conn, $post_q);
     if ($post_r->num_rows > 0) { # apparently returns true even on empty set; find alternative

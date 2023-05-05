@@ -1,4 +1,6 @@
-<!-- written by Ian Beckett and Cole McAnelly -->
+<!-- written by Ian Beckett and Cole McAnelly 
+provides interface and backend functionality for login page, including registration
+-->
 <?php
     $title = 'Login';
     $childView = 'views/_login.php';

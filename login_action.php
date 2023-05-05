@@ -1,4 +1,6 @@
 <!-- written by Ian Beckett-->
+<!-- validates login and saves the relevant data as session variable for use
+in the rest of the website -->
 <?php
 if ($_SERVER[ 'REQUEST_METHOD'] == 'POST') { # do we even need this if its already being checked in login.php?
    include('api/config.php');
