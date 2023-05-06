@@ -1,4 +1,8 @@
-<!-- By: Cole McAnelly                              -->
+<!-- All Written By: Cole McAnelly
+      This file is a PHP component to be used in the schedule page.
+      This will create a calendar, requesting the events from the 
+      DB with GET request and populating the users calendar with events.
+-->
 <div id="calendar" class="mx-auto mt-5"></div>
 
 <style>

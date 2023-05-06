@@ -1,6 +1,6 @@
 <?php
-/*    <!-- REST API (CRUD Operations) for Calendar Events  -->    */
-/*    <!-- By: Cole McAnelly                              -->    */
+/*    <!-- CRUD Operations for the Admin Event View   -->    */
+/*    <!-- All Written By: Cole McAnelly              -->    */
 include('config.php');
 $method = $_SERVER['REQUEST_METHOD'];
 

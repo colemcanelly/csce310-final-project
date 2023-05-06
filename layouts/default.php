@@ -1,4 +1,11 @@
-<!-- Written by Cole McAnelly -->
+<!-- All Written By: Cole McAnelly                  -->
+<!-- 
+    This file acts as a basic layout for the entire
+    website for uniformity, all pages use this layout
+    this is made possible through PHP. Because every page
+    uses this, I also include some global styles (like bootstrap)
+    and scripts.
+ -->
 <!DOCTYPE html>
 <html lang="en" class="h-100">
 
@@ -26,12 +33,6 @@
   <!-- BOOTSTRAP SCRIPTS -->
   <!-- MDB https://mdbootstrap.com/docs/ -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.js"></script>
-  <script>
-    console.log("<?php echo $_SESSION['account_type']; ?>")
-    // setTimeout(() => {
-    //   window.location.reload();
-    // }, 5000);
-  </script>
 </body>
 
 </html>

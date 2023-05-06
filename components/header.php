@@ -1,3 +1,8 @@
+<!-- All Written By: Cole McAnelly
+  This file is a component used in every page of the website,
+  it is a common header to be used by every page, with links 
+  to the different pages one might visit.
+-->
 <header class="sticky-top bg-white">
   <nav class="navbar navbar-expand-lg py-3">
     <div id="navbar-container" class="container-fluid d-flex justify-content-end">

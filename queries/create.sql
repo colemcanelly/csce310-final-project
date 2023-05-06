@@ -1,6 +1,14 @@
 -- written by Ian Beckett and Cole McAnelly
+/*
+This file will be run to generate our database,
+and even loads some example data into some tables for
+ease of use.
+*/
+
+
 -- DROP all tables and views to create new entries
 /* needs to follow a certain order so that FK constraints dont prevent drop */
+-- Written by CM
 DROP TABLE
     comment,
     meal_event,
@@ -11,6 +19,8 @@ DROP TABLE
 DROP VIEW food_id_name;
 DROP VIEW food_names;
 
+
+-- by EB
 create table user
 (
     user_id         int             PRIMARY KEY         AUTO_INCREMENT,
@@ -22,6 +32,7 @@ create table user
     account_type    int             not null
 );
 
+-- by EB
 create table food
 (
     food_id         int             PRIMARY KEY         AUTO_INCREMENT,
@@ -36,6 +47,7 @@ create table food
     carbs           int
 );
 
+-- by CM
 create table meal_event
 (
     event_id        int             PRIMARY KEY         AUTO_INCREMENT,
@@ -55,6 +67,7 @@ create table meal_event
         ON UPDATE RESTRICT
 );
 
+-- by EB
 create table post
 (
     post_id         int           PRIMARY KEY           AUTO_INCREMENT,
@@ -72,6 +85,7 @@ create table post
     flag            int
 );
 
+-- by EB
 create table comment
 (
     comment_id      int           PRIMARY KEY           AUTO_INCREMENT,
@@ -135,6 +149,7 @@ SELECT `user_id`, `food_id`, `food_name`
 FROM `food`;
     
 
+-- by CM
 -- Example data for testing purposes
 LOAD DATA INFILE '/xampp/htdocs/foodies/queries/users.csv' INTO TABLE user FIELDS TERMINATED BY ',';
 LOAD DATA INFILE '/xampp/htdocs/foodies/queries/food.csv' INTO TABLE food FIELDS TERMINATED BY ',';

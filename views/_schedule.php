@@ -1,3 +1,8 @@
+<!-- All Written By: Cole McAnelly
+  This is the front-end for the schedule,
+  it includes all the components used on the page
+  and checks for permissions to know what type of calendar to include.
+-->
 <section class="d-flex flex-column align-items-center">
   <?php 
   switch ($_SESSION['account_type']) {

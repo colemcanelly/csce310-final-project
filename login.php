@@ -39,6 +39,7 @@ provides interface and backend functionality for login page, including registrat
                 }
                 echo '<br>try again</p>';
             } else {  # send query to register new user
+                // Query and query syntax written by Cole McAnelly
                 $query = "INSERT INTO user
                 VALUES (NULL,'$registerFName','$registerLName','$registerDOB','$registerEmail','$registerPassword','$registerAccountType');";
                 $result = mysqli_query($conn, $query);

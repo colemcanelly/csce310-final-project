@@ -1,7 +1,37 @@
-## TODO
-- a way to link an existing food to a new post
-- log out functionality
-- allow guests (not signed in) to see posts from home page
+## File Tree
+```text
+./foodies/
+├── README.md				Ian Beckett & Cole McAnelly
+├── queries/
+│   └── create.sql			Ian Beckett & Cole McAnelly
+├── api/
+│   ├── config.php			Ian Beckett & Cole McAnelly
+│   ├── manager_events.php		Cole McAnelly
+│   └── calendar.php			Cole McAnelly
+├── layouts/
+│   └── default.php			Cole McAnelly
+├── components/
+│   ├── calendar/
+│   │   ├── calendar.php		Cole McAnelly
+│   │   ├── event-edit.php		Cole McAnelly
+│   │   ├── event-new.php		Cole McAnelly
+│   │   └── meal-picker.php		Cole McAnelly
+│   ├── adminEvents.php			Cole McAnelly
+│   └── header.php			Cole McAnelly
+├── views/
+│   ├── _food.php                       Margaret Zhuang
+│   ├── _login.php                      Cole McAnelly & Ian Beckett
+│   └── _schedule.php			Cole McAnelly
+├── food.php				Margaret Zhuang
+├── index.php                           Ian Beckett & thuc
+├── login.php                           Ian Beckett & Cole McAnelly
+├── login_action.php                    Ian Beckett
+├── login_tools.php                     Ian Beckett
+├── logout.php                          Thuc Tran
+├── profile.php                         Ian Beckett
+├── schedule.php			Cole McAnelly
+└── user.php                            Thuc Tran
+```
 
 ## Page Layout / Design
 Checkout [this](https://stackoverflow.com/questions/6483234/php-file-layout-design) stackoverflow page for info how to create modular layouts.

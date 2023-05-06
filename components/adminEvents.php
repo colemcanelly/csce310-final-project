@@ -1,4 +1,8 @@
-<!-- By: Cole McAnelly                              -->
+<!-- All Written By: Cole McAnelly
+  This file is similar to components/calendar/calendar.php,
+  but is the large table displayed for the Admin to view the events
+  created by ALL the users. It does not give the Admin permission to edit or delete events.
+-->
 <div id="table-container" class="mt-5">
   <table
     id="table"

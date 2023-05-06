@@ -1,4 +1,9 @@
-<!-- By: Cole McAnelly                              -->
+<!-- All Written By: Cole McAnelly
+      This file is a PHP component that
+      is a popup for editing the details of events,
+      and will submit the edited data to the DB or optionally
+      POST a request to delete the event.
+-->
 <!-- Modal -->
 <div class="modal top " id="editEventModal" tabindex="-1" aria-labelledby="editEventModalLabel" aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">
   <div class="modal-dialog modal-sm ">

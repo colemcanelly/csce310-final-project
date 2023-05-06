@@ -1,5 +1,10 @@
 <!-- written by Cole McAnelly and Ian Beckett 
 html for the login page-->
+<!-- 
+  This page is the front-end of the login page, and the backend is in ./login.php.
+  I (Cole McAnelly) wrote most of this file, but Ian actually created the form
+  and had the skeleton, I just stylized it and formatted it correctly.
+ -->
 <section class="h-100 d-flex justify-content-center ">
   <div id="login" class="">
     <!-- Pills navs -->

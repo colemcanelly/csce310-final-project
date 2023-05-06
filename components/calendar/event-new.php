@@ -1,4 +1,8 @@
-<!-- By: Cole McAnelly                              -->
+<!-- All Written By: Cole McAnelly
+      This file is a PHP component that
+      is a popup for creating new events,
+      and will POST the new data to the DB.
+-->
 <!-- Modal -->
 <div class="modal top " id="newEventModal" tabindex="-1" aria-labelledby="newEventModalLabel" aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">
   <div class="modal-dialog modal-sm ">
