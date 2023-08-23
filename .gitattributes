@@ -1,0 +1,5 @@
+dashboard/** linguist-vendored
+img/** linguist-vendored
+xampp/** linguist-vendored
+
+*.php linguist-language=PHP
